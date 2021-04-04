@@ -1,0 +1,250 @@
+.Home {
+  button {
+    background-color: transparent;
+    border: transparent;
+    padding: 0px;
+    margin: 0px;
+    outline: 0px;
+  }
+
+  .ContentTitle {
+    margin-top: 15px;
+    margin-left: 2vw;
+    h1 {
+      font-size: 30px;
+      font-weight: 700;
+    }
+  }
+
+  .Content {
+    .HomeMenu {
+      display: flex;
+      justify-content: space-around;
+      height: 50px;
+      margin-top: 15px;
+      p {
+        font-size: 19px;
+        font-weight: 700;
+        transition: 500ms color;
+      }
+    }
+    .HomeContent {
+      transition: 250ms opacity;
+    }
+    .Market {
+      .MarketSorter {
+        display: flex;
+        justify-content: space-around;
+        height: 50px;
+        p {
+          font-size: 15px;
+          font-weight: 700;
+          transition: 500ms color;
+          width: 60px;
+        }
+      }
+      .MarketList {
+        display: grid;
+        grid-row-gap: 10px;
+        width: 100%;
+        transition: 250ms opacity;
+        .Show {
+          background-color: red;
+        }
+        .CoinBlock {
+          width: 85vw;
+          box-shadow: 0 3px 20px 0 #e8e8e8;
+          border-radius: 13px;
+          height: 50px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          padding-left: 5%;
+          padding-right: 5%;
+          display: flex;
+          align-items: center;
+          img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 50%;
+          }
+          .Info {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            align-items: center;
+            .CoinName {
+              font-size: 15px;
+              font-weight: 700;
+            }
+            .CoinTicker {
+              font-size: 13px;
+              color: #8f8f8f;
+            }
+          }
+          .Price {
+            margin-left: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            width: 120px;
+            align-items: center;
+            .CoinPrice {
+              grid-column: 1 / 3;
+              text-align: right;
+              font-size: 15px;
+              font-weight: 700;
+            }
+            .CoinChangePrice {
+              text-align: right;
+              font-size: 13px;
+            }
+            .CoinChangeRate {
+              text-align: right;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+    .MyAsset {
+      margin-top: 15px;
+      .MyAssetValueArea {
+        .MyAssetValueAreaHeader {
+          display: flex;
+          .MyAssetValueLabel {
+            margin-left: 2vw;
+          }
+          .MyAssetReset {
+            margin-left: auto;
+          }
+        }
+        .MyAssetValueAreaBody {
+          margin: 10px 0px;
+          .MyAssetValue {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 700;
+            padding: 5px;
+          }
+          .MyAssetValueInfo {
+            height: 40px;
+            display: flex;
+            justify-content: space-around;
+            font-size: 23px;
+          }
+        }
+      }
+      .MyAssetListArea {
+        .MyAssetListLabel {
+          margin-left: 2vw;
+          margin-bottom: 15px;
+        }
+        .MyAssetList {
+          display: grid;
+          grid-row-gap: 10px;
+          .Won {
+            width: 85vw;
+            box-shadow: 0 3px 20px 0 #e8e8e8;
+            border-radius: 13px;
+            height: 50px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 5%;
+            padding-right: 5%;
+            display: flex;
+            align-items: center;
+
+            img {
+              width: 50px;
+              height: 50px;
+              object-fit: cover;
+              margin-right: 15px;
+              border-radius: 50%;
+            }
+            .Info {
+              display: grid;
+              grid-template-rows: 1fr 1fr;
+              align-items: center;
+              .WonLabel {
+                font-size: 15px;
+                font-weight: 700;
+              }
+              .WonTicker {
+                font-size: 13px;
+                color: #8f8f8f;
+              }
+            }
+            .WonPrice {
+              align-self: center;
+              font-size: 15px;
+              font-weight: 700;
+              margin-left: auto;
+            }
+          }
+          .AssetBlock {
+            width: 85vw;
+            box-shadow: 0 3px 20px 0 #e8e8e8;
+            border-radius: 13px;
+            padding: 5px 5%;
+            .AssetBlockHeader {
+              height: 50px;
+              display: flex;
+              align-items: center;
+              margin-bottom: 10px;
+              img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+                margin-right: 15px;
+                border-radius: 50%;
+              }
+              .Info {
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                align-items: center;
+                .AssetName {
+                  font-size: 15px;
+                  font-weight: 700;
+                }
+                .AssetTicker {
+                  font-size: 13px;
+                  color: #8f8f8f;
+                }
+              }
+              .Summary {
+                margin-left: auto;
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                align-items: center;
+                justify-items: right;
+                .TotalPrice {
+                  font-size: 15px;
+                  font-weight: 700;
+                }
+                .Quantity {
+                  font-size: 13px;
+                }
+              }
+            }
+            .AssetBlockBody {
+              display: grid;
+              grid-template-columns: 1fr 2fr 1fr 2fr;
+              grid-row-gap: 5px;
+              justify-items: right;
+              p {
+                font-size: 13px;
+              }
+              .Label {
+                color: #8f8f8f;
+              }
+              .Avg {
+                color: black;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
