@@ -7,4 +7,70 @@
       font-weight: 700;
     }
   }
+  .Content {
+    .CoinInfo {
+      margin-top: 10px;
+      .CoinInfoHeader {
+        margin-left: 3vw;
+        display: flex;
+        position: relative;
+        img {
+          height: 25px;
+          width: 25px;
+        }
+        .CoinSelector {
+          margin-left: 3vw;
+          height: 25px;
+          width: 250px;
+          padding: 0px;
+          border: 0px;
+          font-size: 19px;
+          font-weight: 700;
+          font-family: "Noto Sans KR", sans-serif;
+        }
+        .DropdownMenu {
+          position: absolute;
+          top: 25px;
+          left: calc(25px + 3vw);
+          width: 248px;
+          overflow: scroll;
+          max-height: 0px;
+          transition: 250ms max-height;
+          border-bottom-left-radius: 8px;
+          border-bottom-right-radius: 8px;
+          background-color: white;
+          scrollbar-width: 0;
+          .DropdownCoinBlock {
+            padding: 5px;
+            display: flex;
+            border-top: 1px solid #8f8f8f;
+            .CoinName {
+              margin-left: 5px;
+            }
+          }
+        }
+        .DropdownMenu::-webkit-scrollbar {
+          display: none;
+        }
+        input:focus + .DropdownMenu {
+          max-height: 200px;
+          border: 1px solid #8f8f8f;
+        }
+      }
+      .CoinInfoBody {
+        .CoinPrice {
+          text-align: center;
+          font-size: 40px;
+          font-weight: 700;
+          padding: 5px;
+        }
+        .CoinChangeInfo {
+          height: 40px;
+          display: flex;
+          justify-content: space-around;
+          font-size: 23px;
+        }
+      }
+    }
+  }
 }
