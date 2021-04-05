@@ -20,7 +20,7 @@ export const MarketListArea = React.memo(({ sortType }: MarketListType) => {
         <input
           className="MarketSearch"
           value={search}
-          placeholder={"Search Coin"}
+          placeholder={"Search Coin..."}
           onChange={({ target: { value } }) => {
             setSearch(value);
           }}
@@ -58,12 +58,15 @@ function SortCoins(sortType: number, coinList: CoinType[]): CoinType[] {
       return a.change_rate - b.change_rate;
     });
   } else {
+    //All
     returnCoins = coinList.sort((a, b) => {
-      if (a.english_name < b.english_name) return -1;
-      else if (a.english_name > b.english_name) return 1;
+      if (a.english_name.toLowerCase() < b.english_name.toLowerCase())
+        return -1;
+      else if (a.english_name.toLowerCase() > b.english_name.toLowerCase())
+        return 1;
       else return 0;
     });
+    return returnCoins;
   }
-  // return returnCoins.splice(0, 3);
-  return returnCoins;
+  return returnCoins.splice(0, 10);
 }

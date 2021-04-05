@@ -31,13 +31,13 @@ export const buyCoin = (data: buyCoinType) => ({
 type UserAction = ReturnType<typeof buyCoin> | ReturnType<typeof initialUpdate>;
 
 export const initialState: UserState = {
-  startValue: 1000000,
-  won: 1000000,
+  startValue: 10000000,
+  won: 13000,
   assetsList: [
     {
-      market: "KRW-MTL",
-      quantity: 13,
-      averagePrice: 100,
+      market: "KRW-BTC",
+      quantity: 0.8,
+      averagePrice: 20000000,
     },
   ],
 };

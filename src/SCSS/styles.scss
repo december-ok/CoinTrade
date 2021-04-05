@@ -2,6 +2,7 @@
 @import "Home.scss";
 @import "Navigation.scss";
 @import "Coin.scss";
+@import "About.scss";
 
 Body {
   font-family: "Noto Sans KR", sans-serif;
@@ -12,6 +13,7 @@ Body {
     width: 95%;
     margin-left: calc(5% / 2);
     transition: 250ms opacity;
+    margin-bottom: 75px;
   }
 }
 

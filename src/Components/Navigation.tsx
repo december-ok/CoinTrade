@@ -26,6 +26,15 @@ export function Navigation({ menu, setMenu }: any) {
       navigationFadeAway(1);
     }
   };
+  const onAboutClick = () => {
+    if (menu !== 3) {
+      document.querySelectorAll(".m-button").forEach((element) => {
+        element.classList.add("inActive");
+      });
+      document.querySelector(".m-button.About")?.classList.remove("inActive");
+      navigationFadeAway(3);
+    }
+  };
   return (
     <div className="Navigation">
       <div className="Menu">
@@ -36,6 +45,10 @@ export function Navigation({ menu, setMenu }: any) {
         <button className="m-button Coin inActive" onClick={onCoinClick}>
           <i className="fas fa-chart-line" />
           <p>Coin</p>
+        </button>
+        <button className="m-button About inActive" onClick={onAboutClick}>
+          <i className="far fa-smile" />
+          <p>About</p>
         </button>
       </div>
     </div>

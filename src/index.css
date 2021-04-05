@@ -211,7 +211,8 @@
   width: 100vw;
   bottom: 0;
   box-shadow: 0px 0px 16px #e8e8e8;
-  display: flex; }
+  display: flex;
+  background-color: white; }
   .Navigation button {
     background-color: transparent;
     border: transparent;
@@ -249,6 +250,13 @@
     font-size: 30px;
     font-weight: 700; }
 
+.About .ContentTitle {
+  margin-top: 15px;
+  margin-left: 2vw; }
+  .About .ContentTitle h1 {
+    font-size: 30px;
+    font-weight: 700; }
+
 Body {
   font-family: "Noto Sans KR", sans-serif;
   margin: 0px;
@@ -257,7 +265,8 @@ Body {
   Body .ContentWrap {
     width: 95%;
     margin-left: calc(5% / 2);
-    transition: 250ms opacity; }
+    transition: 250ms opacity;
+    margin-bottom: 75px; }
 
 .inActive {
   color: #8f8f8f; }

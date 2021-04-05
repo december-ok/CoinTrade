@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
+import { About } from "./Components/About/About";
 import { CoinComponent } from "./Components/Coin/CoinComponent";
 import { Home } from "./Components/Home/Home";
 import { Navigation } from "./Components/Navigation";
@@ -42,6 +43,7 @@ function App() {
         {loaded && menu === 1 && (
           <CoinComponent market={market} setMarket={setMarket} />
         )}
+        {loaded && menu === 3 && <About />}
       </div>
       <Navigation menu={menu} setMenu={setMenu} />
     </div>
