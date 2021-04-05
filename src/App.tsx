@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
+import { CoinComponent } from "./Components/Coin/CoinComponent";
 import { Home } from "./Components/Home/Home";
 import { Navigation } from "./Components/Navigation";
 import {
@@ -18,6 +19,8 @@ function App() {
   const dispatch = useDispatch();
   let socket = useRef<WebSocket | null>(null);
   const [loaded, setLoaded] = useState(false);
+  const [market, setMarket] = useState("KRW-BTC");
+  const [menu, setMenu] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -34,8 +37,13 @@ function App() {
   }, [dispatch]);
   return (
     <div className="App">
-      <div className="ContentWrap">{loaded && <Home />}</div>
-      <Navigation />
+      <div className="ContentWrap">
+        {loaded && menu === 0 && <Home />}
+        {loaded && menu === 1 && (
+          <CoinComponent market={market} setMarket={setMarket} />
+        )}
+      </div>
+      <Navigation menu={menu} setMenu={setMenu} />
     </div>
   );
 }

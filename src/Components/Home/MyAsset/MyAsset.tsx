@@ -93,13 +93,19 @@ export function MyAsset() {
               <p className="WonPrice">{getCommaNumber(User.won)}</p>
             </div>
           )}
-          {User.assetsList.map((item) => (
-            <AssetBlock
-              coin={Coin.get(item.market)}
-              asset={item}
-              key={item.market}
-            />
-          ))}
+          {User.assetsList
+            .sort(
+              (a, b) =>
+                a.quantity * (Coin.get(a.market) as CoinType).trade_price -
+                b.quantity * (Coin.get(b.market) as CoinType).trade_price
+            )
+            .map((item) => (
+              <AssetBlock
+                coin={Coin.get(item.market)}
+                asset={item}
+                key={item.market}
+              />
+            ))}
         </div>
       </div>
     </div>

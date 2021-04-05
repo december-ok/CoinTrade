@@ -1,6 +1,7 @@
 export type CoinType = {
   market: string;
   english_name: string;
+  korean_name: string;
   simple_market: string;
   acc_trade_price: number;
   acc_trade_price_24h: number;

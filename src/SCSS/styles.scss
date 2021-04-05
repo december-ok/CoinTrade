@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 @import "Home.scss";
+@import "Navigation.scss";
+@import "Coin.scss";
 
 Body {
   font-family: "Noto Sans KR", sans-serif;
@@ -9,11 +11,7 @@ Body {
   .ContentWrap {
     width: 95%;
     margin-left: calc(5% / 2);
-  }
-  .Navigation {
-    position: fixed;
-    height: 65px;
-    bottom: 0;
+    transition: 250ms opacity;
   }
 }
 

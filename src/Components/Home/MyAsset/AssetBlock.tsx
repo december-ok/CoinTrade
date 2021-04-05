@@ -1,20 +1,14 @@
-import React, { CSSProperties, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import React, { CSSProperties } from "react";
 import {
   getChangeRate,
   getCommaNumber,
 } from "../../../Controller/CoinController";
-import { RootState } from "../../../Modules";
-import { CoinType } from "../../CommonType";
 
 export const AssetBlock = React.memo(
   ({
     coin: { market, english_name, trade_price, change: lastChange },
     asset: { quantity, averagePrice },
   }: any) => {
-    const priceSelector = useRef<HTMLDivElement>(null);
-    const Coin: CoinType | any = useSelector((state: RootState) => state.Coin);
-
     const totalPrice = quantity * trade_price;
     const startPrice = quantity * averagePrice;
 
@@ -43,7 +37,7 @@ export const AssetBlock = React.memo(
           <div className="Summary" style={{ color } as CSSProperties}>
             <p className="TotalPrice">{getCommaNumber(totalPrice)}</p>
             <p className="Quantity">
-              {getCommaNumber(quantity) + market.substr(4)}
+              {getCommaNumber(quantity) + " " + market.substr(4)}
             </p>
           </div>
         </div>

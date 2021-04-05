@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { MarketList } from "./MarketList";
+import { MarketListArea } from "./MarketListArea";
 
 export function Market() {
   //0 = Volume, 1=Rise, 2=Fall 3=All
   const [sort, setSort] = useState(0);
 
   const marketListFadeAway = (num: number) => {
-    document.querySelector(".MarketList")?.classList.add("fadeAway");
+    document.querySelector(".MarketListArea")?.classList.add("fadeAway");
     setTimeout(() => {
       setSort(num);
-      document.querySelector(".MarketList")?.classList.remove("fadeAway");
+      document.querySelector(".MarketListArea")?.classList.remove("fadeAway");
     }, 250);
   };
 
@@ -67,10 +67,10 @@ export function Market() {
           <p className="FallP inActive">Fall</p>
         </button>
         <button onClick={onAll}>
-          <p className="AllP inActive">All</p>
+          <p className="AllP inActive">Search</p>
         </button>
       </div>
-      <MarketList sortType={sort} />
+      <MarketListArea sortType={sort} />
     </div>
   );
 }

@@ -43,65 +43,74 @@
           width: 60px;
         }
       }
-      .MarketList {
-        display: grid;
-        grid-row-gap: 10px;
-        width: 100%;
+      .MarketListArea {
         transition: 250ms opacity;
-        .Show {
-          background-color: red;
-        }
-        .CoinBlock {
+        .MarketSearch {
           width: 85vw;
-          box-shadow: 0 3px 20px 0 #e8e8e8;
+          box-shadow: 0 3px 10px 0 #e8e8e8;
           border-radius: 13px;
-          height: 50px;
-          padding-top: 5px;
-          padding-bottom: 5px;
-          padding-left: 5%;
-          padding-right: 5%;
-          display: flex;
-          align-items: center;
-          img {
-            width: 50px;
+          padding: 5px 5%;
+          border: 1px solid #e8e8e8;
+          height: 30px;
+          margin-bottom: 10px;
+        }
+        .MarketList {
+          display: grid;
+          grid-row-gap: 10px;
+          width: 100%;
+          .Show {
+            background-color: red;
+          }
+          .CoinBlock {
+            width: 85vw;
+            box-shadow: 0 3px 10px 0 #e8e8e8;
+            border-radius: 13px;
             height: 50px;
-            object-fit: cover;
-            margin-right: 15px;
-            border-radius: 50%;
-          }
-          .Info {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
+            padding: 5px 5%;
+            display: flex;
+            border: 1px solid #e8e8e8;
             align-items: center;
-            .CoinName {
-              font-size: 15px;
-              font-weight: 700;
+            img {
+              width: 50px;
+              height: 50px;
+              object-fit: cover;
+              margin-right: 15px;
+              border-radius: 50%;
             }
-            .CoinTicker {
-              font-size: 13px;
-              color: #8f8f8f;
+            .Info {
+              display: grid;
+              grid-template-rows: 1fr 1fr;
+              align-items: center;
+              .CoinName {
+                font-size: 15px;
+                font-weight: 700;
+              }
+              .CoinTicker {
+                font-size: 13px;
+                color: #8f8f8f;
+              }
             }
-          }
-          .Price {
-            margin-left: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            width: 120px;
-            align-items: center;
-            .CoinPrice {
-              grid-column: 1 / 3;
-              text-align: right;
-              font-size: 15px;
-              font-weight: 700;
-            }
-            .CoinChangePrice {
-              text-align: right;
-              font-size: 13px;
-            }
-            .CoinChangeRate {
-              text-align: right;
-              font-size: 13px;
+            .Price {
+              margin-left: auto;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              grid-template-rows: 1fr 1fr;
+              width: 120px;
+              align-items: center;
+              .CoinPrice {
+                grid-column: 1 / 3;
+                text-align: right;
+                font-size: 15px;
+                font-weight: 700;
+              }
+              .CoinChangePrice {
+                text-align: right;
+                font-size: 13px;
+              }
+              .CoinChangeRate {
+                text-align: right;
+                font-size: 13px;
+              }
             }
           }
         }
@@ -154,6 +163,7 @@
             padding-right: 5%;
             display: flex;
             align-items: center;
+            border: 1px solid #e8e8e8;
 
             img {
               width: 50px;
@@ -186,6 +196,7 @@
             width: 85vw;
             box-shadow: 0 3px 20px 0 #e8e8e8;
             border-radius: 13px;
+            border: 1px solid #e8e8e8;
             padding: 5px 5%;
             .AssetBlockHeader {
               height: 50px;

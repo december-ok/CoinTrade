@@ -36,58 +36,65 @@
     transition: 500ms color;
     width: 60px; }
 
-.Home .Content .Market .MarketList {
-  display: grid;
-  grid-row-gap: 10px;
-  width: 100%;
+.Home .Content .Market .MarketListArea {
   transition: 250ms opacity; }
-  .Home .Content .Market .MarketList .Show {
-    background-color: red; }
-  .Home .Content .Market .MarketList .CoinBlock {
+  .Home .Content .Market .MarketListArea .MarketSearch {
     width: 85vw;
-    box-shadow: 0 3px 20px 0 #e8e8e8;
+    box-shadow: 0 3px 10px 0 #e8e8e8;
     border-radius: 13px;
-    height: 50px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5%;
-    padding-right: 5%;
-    display: flex;
-    align-items: center; }
-    .Home .Content .Market .MarketList .CoinBlock img {
-      width: 50px;
+    padding: 5px 5%;
+    border: 1px solid #e8e8e8;
+    height: 30px;
+    margin-bottom: 10px; }
+  .Home .Content .Market .MarketListArea .MarketList {
+    display: grid;
+    grid-row-gap: 10px;
+    width: 100%; }
+    .Home .Content .Market .MarketListArea .MarketList .Show {
+      background-color: red; }
+    .Home .Content .Market .MarketListArea .MarketList .CoinBlock {
+      width: 85vw;
+      box-shadow: 0 3px 10px 0 #e8e8e8;
+      border-radius: 13px;
       height: 50px;
-      object-fit: cover;
-      margin-right: 15px;
-      border-radius: 50%; }
-    .Home .Content .Market .MarketList .CoinBlock .Info {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
+      padding: 5px 5%;
+      display: flex;
+      border: 1px solid #e8e8e8;
       align-items: center; }
-      .Home .Content .Market .MarketList .CoinBlock .Info .CoinName {
-        font-size: 15px;
-        font-weight: 700; }
-      .Home .Content .Market .MarketList .CoinBlock .Info .CoinTicker {
-        font-size: 13px;
-        color: #8f8f8f; }
-    .Home .Content .Market .MarketList .CoinBlock .Price {
-      margin-left: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      width: 120px;
-      align-items: center; }
-      .Home .Content .Market .MarketList .CoinBlock .Price .CoinPrice {
-        grid-column: 1 / 3;
-        text-align: right;
-        font-size: 15px;
-        font-weight: 700; }
-      .Home .Content .Market .MarketList .CoinBlock .Price .CoinChangePrice {
-        text-align: right;
-        font-size: 13px; }
-      .Home .Content .Market .MarketList .CoinBlock .Price .CoinChangeRate {
-        text-align: right;
-        font-size: 13px; }
+      .Home .Content .Market .MarketListArea .MarketList .CoinBlock img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin-right: 15px;
+        border-radius: 50%; }
+      .Home .Content .Market .MarketListArea .MarketList .CoinBlock .Info {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        align-items: center; }
+        .Home .Content .Market .MarketListArea .MarketList .CoinBlock .Info .CoinName {
+          font-size: 15px;
+          font-weight: 700; }
+        .Home .Content .Market .MarketListArea .MarketList .CoinBlock .Info .CoinTicker {
+          font-size: 13px;
+          color: #8f8f8f; }
+      .Home .Content .Market .MarketListArea .MarketList .CoinBlock .Price {
+        margin-left: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        width: 120px;
+        align-items: center; }
+        .Home .Content .Market .MarketListArea .MarketList .CoinBlock .Price .CoinPrice {
+          grid-column: 1 / 3;
+          text-align: right;
+          font-size: 15px;
+          font-weight: 700; }
+        .Home .Content .Market .MarketListArea .MarketList .CoinBlock .Price .CoinChangePrice {
+          text-align: right;
+          font-size: 13px; }
+        .Home .Content .Market .MarketListArea .MarketList .CoinBlock .Price .CoinChangeRate {
+          text-align: right;
+          font-size: 13px; }
 
 .Home .Content .MyAsset {
   margin-top: 15px; }
@@ -125,7 +132,8 @@
       padding-left: 5%;
       padding-right: 5%;
       display: flex;
-      align-items: center; }
+      align-items: center;
+      border: 1px solid #e8e8e8; }
       .Home .Content .MyAsset .MyAssetListArea .MyAssetList .Won img {
         width: 50px;
         height: 50px;
@@ -151,6 +159,7 @@
       width: 85vw;
       box-shadow: 0 3px 20px 0 #e8e8e8;
       border-radius: 13px;
+      border: 1px solid #e8e8e8;
       padding: 5px 5%; }
       .Home .Content .MyAsset .MyAssetListArea .MyAssetList .AssetBlock .AssetBlockHeader {
         height: 50px;
@@ -196,6 +205,50 @@
         .Home .Content .MyAsset .MyAssetListArea .MyAssetList .AssetBlock .AssetBlockBody .Avg {
           color: black; }
 
+.Navigation {
+  position: fixed;
+  height: 65px;
+  width: 100vw;
+  bottom: 0;
+  box-shadow: 0px 0px 16px #e8e8e8;
+  display: flex; }
+  .Navigation button {
+    background-color: transparent;
+    border: transparent;
+    padding: 0px;
+    margin: 0px;
+    outline: 0px; }
+  .Navigation .Menu {
+    display: flex;
+    width: 90%;
+    height: 80%;
+    margin: auto;
+    align-self: center;
+    justify-content: space-around; }
+    .Navigation .Menu .m-button {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      grid-template-rows: 2fr 1fr;
+      justify-items: center;
+      margin: auto;
+      transition: 250ms color; }
+      .Navigation .Menu .m-button i {
+        font-size: 25px; }
+      .Navigation .Menu .m-button p {
+        text-align: center;
+        transition: 250ms color;
+        font-size: 11px; }
+    .Navigation .Menu .m-button.inActive p {
+      color: transparent; }
+
+.Coin .ContentTitle {
+  margin-top: 15px;
+  margin-left: 2vw; }
+  .Coin .ContentTitle h1 {
+    font-size: 30px;
+    font-weight: 700; }
+
 Body {
   font-family: "Noto Sans KR", sans-serif;
   margin: 0px;
@@ -203,11 +256,8 @@ Body {
   height: 100%; }
   Body .ContentWrap {
     width: 95%;
-    margin-left: calc(5% / 2); }
-  Body .Navigation {
-    position: fixed;
-    height: 65px;
-    bottom: 0; }
+    margin-left: calc(5% / 2);
+    transition: 250ms opacity; }
 
 .inActive {
   color: #8f8f8f; }
