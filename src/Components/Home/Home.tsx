@@ -3,17 +3,17 @@ import { Market } from "./Market/Market";
 import { MyAsset } from "./MyAsset/MyAsset";
 
 export function Home() {
-  const [market, setMarket] = useState(true);
+  const [isMarket, setIsMarket] = useState(true);
 
   const HomeMenuFadeAway = (isMarket: boolean) => {
     document.querySelector(".HomeContent")?.classList.add("fadeAway");
     setTimeout(() => {
-      setMarket(isMarket);
+      setIsMarket(isMarket);
       document.querySelector(".HomeContent")?.classList.remove("fadeAway");
     }, 250);
   };
   const onMarketClick = () => {
-    if (!market) {
+    if (!isMarket) {
       document.querySelectorAll(".HomeMenu p").forEach((element) => {
         element.classList.add("inActive");
       });
@@ -23,7 +23,7 @@ export function Home() {
     }
   };
   const onAssetClick = () => {
-    if (market) {
+    if (isMarket) {
       document.querySelectorAll(".HomeMenu p").forEach((element) => {
         element.classList.add("inActive");
       });
@@ -52,8 +52,8 @@ export function Home() {
           </button>
         </div>
         <div className="HomeContent fadeAway">
-          {market && <Market />}
-          {!market && <MyAsset />}
+          {isMarket && <Market />}
+          {!isMarket && <MyAsset />}
         </div>
       </div>
     </div>

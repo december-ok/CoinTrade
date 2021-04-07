@@ -2,6 +2,7 @@ import axios from "axios";
 import { store } from "..";
 import {
   setBasicMarket,
+  setDetailMarket,
   setRealMarket,
   setSimpleMarket,
 } from "../Modules/Coin";
@@ -60,6 +61,21 @@ export const getRealTimeMarket = async (marketList: string) => {
     }
     store.dispatch(setRealMarket(data));
   };
+  return socket;
+};
+
+export const getDetailData = async (market: string): Promise<WebSocket> => {
+  const socket = new WebSocket("wss://api.upbit.com/websocket/v1");
+  socket.onopen = () => {
+    const messageOrderbook = `[{"ticket":"test"},{"type":"orderbook","codes":["${market}.7"]}]`;
+    // console.log(message);
+    socket.send(messageOrderbook);
+  };
+  socket.onmessage = async (message: any) => {
+    const data = await new Response(message.data).json();
+    store.dispatch(setDetailMarket(data));
+  };
+
   return socket;
 };
 

@@ -68,5 +68,5 @@ function SortCoins(sortType: number, coinList: CoinType[]): CoinType[] {
     });
     return returnCoins;
   }
-  return returnCoins.splice(0, 10);
+  return returnCoins.splice(0, 15);
 }

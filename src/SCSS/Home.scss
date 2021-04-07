@@ -37,7 +37,8 @@
         justify-content: space-around;
         height: 50px;
         p {
-          font-size: 15px;
+          display: inline-block;
+          font-size: 16px;
           font-weight: 700;
           transition: 500ms color;
           width: 60px;

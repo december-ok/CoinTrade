@@ -2,6 +2,7 @@ import { CoinType } from "../Components/CommonType";
 
 const SET_BASIC_MARKET = "Coin/SET_BASIC_MARKET" as const;
 const SET_SIMPLE_MARKET = "Coin/SET_SIMPLE_MARKET" as const;
+const SET_DETAIL_MARKET = "Coin/SET_DETAIL_MARKET" as const;
 const SET_REAL_MARKET = "Coin/SET_REAL_MARKET" as const;
 
 export type setSimpleMarketType = CoinType[];
@@ -14,6 +15,10 @@ export const setSimpleMarket = (data: setSimpleMarketType) => ({
   type: SET_SIMPLE_MARKET,
   payload: data,
 });
+export const setDetailMarket = (data: any) => ({
+  type: SET_DETAIL_MARKET,
+  payload: data,
+});
 export const setRealMarket = (data: any) => ({
   type: SET_REAL_MARKET,
   payload: data,
@@ -22,17 +27,18 @@ export const setRealMarket = (data: any) => ({
 type CoinAction =
   | ReturnType<typeof setSimpleMarket>
   | ReturnType<typeof setBasicMarket>
-  | ReturnType<typeof setRealMarket>;
+  | ReturnType<typeof setRealMarket>
+  | ReturnType<typeof setDetailMarket>;
 
-type CoinState = Map<string, object>;
+type CoinState = Map<string, any>;
 
-const initialState: CoinState = new Map<string, object>();
+const initialState: CoinState = new Map<string, any>();
 
 export default function Coin(
   state: CoinState = initialState,
   action: CoinAction
 ): CoinState {
-  let newCoinState = new Map<string, object>();
+  let newCoinState = new Map<string, any>();
   state.forEach((value, key) => {
     newCoinState.set(key, value);
   });
@@ -45,6 +51,12 @@ export default function Coin(
     case SET_SIMPLE_MARKET:
       action.payload.forEach((item: any) => {
         newCoinState.set(item.market, { ...state.get(item.market), ...item });
+      });
+      return newCoinState;
+    case SET_DETAIL_MARKET:
+      newCoinState.set(action.payload.code, {
+        ...state.get(action.payload.code),
+        order_book: action.payload,
       });
       return newCoinState;
     case SET_REAL_MARKET:

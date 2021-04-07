@@ -20,7 +20,7 @@ export type CoinType = {
   prev_closing_price: number;
   signed_change_price: number;
   signed_change_rate: number;
-  timestamp: number;
+  timestamp: Date;
   trade_date: string;
   trade_date_kst: string;
   trade_price: number;
@@ -28,4 +28,21 @@ export type CoinType = {
   trade_time_kst: string;
   trade_timestamp: Date;
   trade_volume: number;
+  order_book?: OrderBookType;
+};
+
+export type OrderBookType = {
+  code: string;
+  length: number;
+  stream_type: string;
+  timestamp: Date;
+  total_ask_size: number;
+  total_bid_size: number;
+  type: string;
+  orderbook_units: {
+    ask_price: number;
+    bid_price: number;
+    ask_size: number;
+    bid_size: number;
+  }[];
 };

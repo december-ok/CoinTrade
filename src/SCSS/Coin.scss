@@ -1,4 +1,11 @@
 .Coin {
+  button {
+    background-color: transparent;
+    border: transparent;
+    padding: 0px;
+    margin: 0px;
+    outline: 0px;
+  }
   .ContentTitle {
     margin-top: 15px;
     margin-left: 2vw;
@@ -8,6 +15,7 @@
     }
   }
   .Content {
+    transition: 250ms opacity;
     .CoinInfo {
       margin-top: 10px;
       .CoinInfoHeader {
@@ -41,18 +49,23 @@
           background-color: white;
           scrollbar-width: 0;
           .DropdownCoinBlock {
+            width: 248px;
+            border: transparent;
+            background-color: transparent;
             padding: 5px;
             display: flex;
+            align-items: center;
             border-top: 1px solid #8f8f8f;
             .CoinName {
-              margin-left: 5px;
+              margin-left: 10px;
+              font-size: 19px;
             }
           }
         }
         .DropdownMenu::-webkit-scrollbar {
           display: none;
         }
-        input:focus + .DropdownMenu {
+        .DropdownMenu.Show {
           max-height: 200px;
           border: 1px solid #8f8f8f;
         }
@@ -70,6 +83,23 @@
           justify-content: space-around;
           font-size: 23px;
         }
+      }
+    }
+    .CoinContent {
+      margin-top: 10px;
+      .CoinContentSelector {
+        display: flex;
+        justify-content: space-around;
+        height: 50px;
+        p {
+          font-size: 16px;
+          font-weight: 700;
+          transition: 500ms color;
+          width: 60px;
+        }
+      }
+      .CoinContentBody {
+        transition: 250ms opacity;
       }
     }
   }

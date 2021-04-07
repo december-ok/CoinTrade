@@ -31,7 +31,8 @@
   justify-content: space-around;
   height: 50px; }
   .Home .Content .Market .MarketSorter p {
-    font-size: 15px;
+    display: inline-block;
+    font-size: 16px;
     font-weight: 700;
     transition: 500ms color;
     width: 60px; }
@@ -243,6 +244,13 @@
     .Navigation .Menu .m-button.inActive p {
       color: transparent; }
 
+.Coin button {
+  background-color: transparent;
+  border: transparent;
+  padding: 0px;
+  margin: 0px;
+  outline: 0px; }
+
 .Coin .ContentTitle {
   margin-top: 15px;
   margin-left: 2vw; }
@@ -250,57 +258,77 @@
     font-size: 30px;
     font-weight: 700; }
 
-.Coin .Content .CoinInfo {
-  margin-top: 10px; }
-  .Coin .Content .CoinInfo .CoinInfoHeader {
-    margin-left: 3vw;
-    display: flex;
-    position: relative; }
-    .Coin .Content .CoinInfo .CoinInfoHeader img {
-      height: 25px;
-      width: 25px; }
-    .Coin .Content .CoinInfo .CoinInfoHeader .CoinSelector {
+.Coin .Content {
+  transition: 250ms opacity; }
+  .Coin .Content .CoinInfo {
+    margin-top: 10px; }
+    .Coin .Content .CoinInfo .CoinInfoHeader {
       margin-left: 3vw;
-      height: 25px;
-      width: 250px;
-      padding: 0px;
-      border: 0px;
-      font-size: 19px;
+      display: flex;
+      position: relative; }
+      .Coin .Content .CoinInfo .CoinInfoHeader img {
+        height: 25px;
+        width: 25px; }
+      .Coin .Content .CoinInfo .CoinInfoHeader .CoinSelector {
+        margin-left: 3vw;
+        height: 25px;
+        width: 250px;
+        padding: 0px;
+        border: 0px;
+        font-size: 19px;
+        font-weight: 700;
+        font-family: "Noto Sans KR", sans-serif; }
+      .Coin .Content .CoinInfo .CoinInfoHeader .DropdownMenu {
+        position: absolute;
+        top: 25px;
+        left: calc(25px + 3vw);
+        width: 248px;
+        overflow: scroll;
+        max-height: 0px;
+        transition: 250ms max-height;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        background-color: white;
+        scrollbar-width: 0; }
+        .Coin .Content .CoinInfo .CoinInfoHeader .DropdownMenu .DropdownCoinBlock {
+          width: 248px;
+          border: transparent;
+          background-color: transparent;
+          padding: 5px;
+          display: flex;
+          align-items: center;
+          border-top: 1px solid #8f8f8f; }
+          .Coin .Content .CoinInfo .CoinInfoHeader .DropdownMenu .DropdownCoinBlock .CoinName {
+            margin-left: 10px;
+            font-size: 19px; }
+      .Coin .Content .CoinInfo .CoinInfoHeader .DropdownMenu::-webkit-scrollbar {
+        display: none; }
+      .Coin .Content .CoinInfo .CoinInfoHeader .DropdownMenu.Show {
+        max-height: 200px;
+        border: 1px solid #8f8f8f; }
+    .Coin .Content .CoinInfo .CoinInfoBody .CoinPrice {
+      text-align: center;
+      font-size: 40px;
       font-weight: 700;
-      font-family: "Noto Sans KR", sans-serif; }
-    .Coin .Content .CoinInfo .CoinInfoHeader .DropdownMenu {
-      position: absolute;
-      top: 25px;
-      left: calc(25px + 3vw);
-      width: 248px;
-      overflow: scroll;
-      max-height: 0px;
-      transition: 250ms max-height;
-      border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;
-      background-color: white;
-      scrollbar-width: 0; }
-      .Coin .Content .CoinInfo .CoinInfoHeader .DropdownMenu .DropdownCoinBlock {
-        padding: 5px;
-        display: flex;
-        border-top: 1px solid #8f8f8f; }
-        .Coin .Content .CoinInfo .CoinInfoHeader .DropdownMenu .DropdownCoinBlock .CoinName {
-          margin-left: 5px; }
-    .Coin .Content .CoinInfo .CoinInfoHeader .DropdownMenu::-webkit-scrollbar {
-      display: none; }
-    .Coin .Content .CoinInfo .CoinInfoHeader input:focus + .DropdownMenu {
-      max-height: 200px;
-      border: 1px solid #8f8f8f; }
-  .Coin .Content .CoinInfo .CoinInfoBody .CoinPrice {
-    text-align: center;
-    font-size: 40px;
-    font-weight: 700;
-    padding: 5px; }
-  .Coin .Content .CoinInfo .CoinInfoBody .CoinChangeInfo {
-    height: 40px;
-    display: flex;
-    justify-content: space-around;
-    font-size: 23px; }
+      padding: 5px; }
+    .Coin .Content .CoinInfo .CoinInfoBody .CoinChangeInfo {
+      height: 40px;
+      display: flex;
+      justify-content: space-around;
+      font-size: 23px; }
+  .Coin .Content .CoinContent {
+    margin-top: 10px; }
+    .Coin .Content .CoinContent .CoinContentSelector {
+      display: flex;
+      justify-content: space-around;
+      height: 50px; }
+      .Coin .Content .CoinContent .CoinContentSelector p {
+        font-size: 16px;
+        font-weight: 700;
+        transition: 500ms color;
+        width: 60px; }
+    .Coin .Content .CoinContent .CoinContentBody {
+      transition: 250ms opacity; }
 
 .About .ContentTitle {
   margin-top: 15px;
@@ -308,6 +336,49 @@
   .About .ContentTitle h1 {
     font-size: 30px;
     font-weight: 700; }
+
+.OrderBook .OrderBookLoading {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10vh;
+  font-size: 5vh; }
+
+.OrderBook .OrderBookLoaded {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; }
+  .OrderBook .OrderBookLoaded .Label {
+    font-weight: 700;
+    text-align: center; }
+  .OrderBook .OrderBookLoaded .AskArea {
+    display: grid;
+    grid-template-rows: repeat(14, 1fr);
+    grid-gap: 5px;
+    justify-items: end;
+    align-items: center; }
+    .OrderBook .OrderBookLoaded .AskArea p.Size {
+      font-size: 14px; }
+  .OrderBook .OrderBookLoaded .PriceArea {
+    display: grid;
+    grid-template-rows: repeat(14, 1fr);
+    grid-gap: 5px;
+    justify-items: center; }
+    .OrderBook .OrderBookLoaded .PriceArea p.Price {
+      font-size: 14px;
+      text-align: center;
+      font-weight: 700; }
+    .OrderBook .OrderBookLoaded .PriceArea p.ChangeRate {
+      text-align: center;
+      font-size: 12px; }
+  .OrderBook .OrderBookLoaded .BidArea {
+    display: grid;
+    grid-template-rows: repeat(14, 1fr);
+    grid-gap: 5px;
+    align-items: center;
+    justify-items: start; }
+    .OrderBook .OrderBookLoaded .BidArea .OverBid {
+      grid-row: 1 / 8; }
+    .OrderBook .OrderBookLoaded .BidArea p.Size {
+      font-size: 14px; }
 
 Body {
   font-family: "Noto Sans KR", sans-serif;
