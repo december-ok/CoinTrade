@@ -7,6 +7,7 @@ import {
 } from "../../Controller/CoinController";
 import { RootState } from "../../Modules";
 import { CoinType } from "../CommonType";
+import Chart from "./Chart";
 import OrderBook from "./OrderBook";
 
 export function CoinComponent({
@@ -62,11 +63,16 @@ export function CoinComponent({
   useEffect(() => {
     CoinSelector.current.value = CoinInfo.english_name;
   }, [CoinInfo.english_name]);
+  useEffect(() => {
+    document.title =
+      CoinInfo.english_name + " " + getCommaNumber(CoinInfo.trade_price);
+  }, [CoinInfo.trade_price, CoinInfo.english_name]);
 
   useEffect(() => {
     (async () => {
       CoinDetailSocket.current = await getDetailData(market);
     })();
+
     return () => {
       CoinDetailSocket.current.close();
     };
@@ -165,7 +171,7 @@ export function CoinComponent({
           </div>
           <div className="CoinContentBody">
             {contentMenu === 0 && <OrderBook CoinInfo={CoinInfo} />}
-            {contentMenu === 1 && "Chart"}
+            {contentMenu === 1 && <Chart CoinInfo={CoinInfo} />}
           </div>
         </div>
       </div>

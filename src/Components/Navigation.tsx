@@ -16,7 +16,6 @@ export function Navigation({ menu, setMenu }: any) {
       navigationFadeAway(0);
     }
   };
-
   const onCoinClick = () => {
     if (menu !== 1) {
       document.querySelectorAll(".m-button").forEach((element) => {
@@ -24,6 +23,15 @@ export function Navigation({ menu, setMenu }: any) {
       });
       document.querySelector(".m-button.Coin")?.classList.remove("inActive");
       navigationFadeAway(1);
+    }
+  };
+  const onOrderClick = () => {
+    if (menu !== 2) {
+      document.querySelectorAll(".m-button").forEach((element) => {
+        element.classList.add("inActive");
+      });
+      document.querySelector(".m-button.Order")?.classList.remove("inActive");
+      navigationFadeAway(2);
     }
   };
   const onAboutClick = () => {
@@ -45,6 +53,10 @@ export function Navigation({ menu, setMenu }: any) {
         <button className="m-button Coin inActive" onClick={onCoinClick}>
           <i className="fas fa-chart-line" />
           <p>Coin</p>
+        </button>
+        <button className="m-button Order inActive" onClick={onOrderClick}>
+          <i className="fas fa-file-invoice-dollar" />
+          <p>Order</p>
         </button>
         <button className="m-button About inActive" onClick={onAboutClick}>
           <i className="far fa-smile" />

@@ -2,10 +2,20 @@ import { getChangeRate, getCommaNumber } from "../../Controller/CoinController";
 import { CoinType } from "../CommonType";
 
 export default function OrderBook({ CoinInfo }: { CoinInfo: CoinType }) {
+  let totalMax: number;
+  if (CoinInfo.order_book) {
+    totalMax = Math.max(
+      ...CoinInfo.order_book.orderbook_units
+        .map((item) => item.ask_size)
+        .concat(
+          CoinInfo.order_book.orderbook_units.map((item) => item.bid_size)
+        )
+    );
+  }
   return (
     <div className="OrderBook">
       {!CoinInfo.order_book && (
-        <div className="OrderBookLoading">
+        <div className="Loading">
           <i className="fas fa-circle-notch fa-spin"></i>
         </div>
       )}
@@ -19,7 +29,17 @@ export default function OrderBook({ CoinInfo }: { CoinInfo: CoinType }) {
               .slice(0)
               .reverse()
               .map((item) => (
-                <div className="AskBlock">
+                <div
+                  key={item.ask_price}
+                  className="AskBlock"
+                  style={{
+                    background: `linear-gradient(90deg, transparent ${
+                      100 - (item.ask_size / totalMax) * 100
+                    }%, rgba(155,171,255,1) ${
+                      100 - (item.ask_size / totalMax) * 100
+                    }%)`,
+                  }}
+                >
                   <p className="Size">{getCommaNumber(item.ask_size)}</p>
                 </div>
               ))}
@@ -39,7 +59,7 @@ export default function OrderBook({ CoinInfo }: { CoinInfo: CoinType }) {
                     ? "#3555FF"
                     : "#000000";
                 return (
-                  <div className="PriceBlock">
+                  <div className="PriceBlock" key={item.ask_price}>
                     <p className="Price" style={{ color }}>
                       {getCommaNumber(item.ask_price)}
                     </p>
@@ -59,9 +79,9 @@ export default function OrderBook({ CoinInfo }: { CoinInfo: CoinType }) {
                   ? "#3555FF"
                   : "#000000";
               return (
-                <div className="PriceBlock">
+                <div className="PriceBlock" key={item.bid_price}>
                   <p className="Price" style={{ color }}>
-                    {getCommaNumber(item.ask_price)}
+                    {getCommaNumber(item.bid_price)}
                   </p>
                   <p className="ChangeRate" style={{ color }}>
                     {changePrice > 0 && "+"}
@@ -74,7 +94,15 @@ export default function OrderBook({ CoinInfo }: { CoinInfo: CoinType }) {
           <div className="BidArea">
             <div className="OverBid"></div>
             {CoinInfo.order_book?.orderbook_units.map((item) => (
-              <div className="BidBlock">
+              <div
+                key={item.bid_price}
+                className="BidBlock"
+                style={{
+                  background: `linear-gradient(90deg, #ffa3a3 ${
+                    (item.bid_size / totalMax) * 100
+                  }%, transparent ${(item.bid_size / totalMax) * 100}%)`,
+                }}
+              >
                 <p className="Size">{getCommaNumber(item.bid_size)}</p>
               </div>
             ))}

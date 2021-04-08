@@ -32,6 +32,21 @@
       transition: 250ms opacity;
     }
     .Market {
+      .MarketOverview {
+        position: relative;
+        .MarketOverviewLabel {
+          font-weight: 700;
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, 0);
+        }
+        .MarketOverviewContent {
+          // max-height: 0px;
+        }
+        .MarketOverviewContent.Show {
+          max-height: none;
+        }
+      }
       .MarketSorter {
         display: flex;
         justify-content: space-around;

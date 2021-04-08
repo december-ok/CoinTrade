@@ -35,6 +35,7 @@ export function Home() {
 
   useEffect(() => {
     document.querySelector(".HomeContent")?.classList.remove("fadeAway");
+    document.title = "CoinTrade";
   }, []);
 
   return (

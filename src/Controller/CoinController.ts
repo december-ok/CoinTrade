@@ -73,10 +73,34 @@ export const getDetailData = async (market: string): Promise<WebSocket> => {
   };
   socket.onmessage = async (message: any) => {
     const data = await new Response(message.data).json();
-    store.dispatch(setDetailMarket(data));
+    store.dispatch(
+      setDetailMarket({
+        ...data,
+        orderbook_units: data.orderbook_units.slice(0, 7),
+      })
+    );
   };
 
   return socket;
+};
+
+export const getChartData = async (
+  market: string,
+  scale: number,
+  amount: number
+) => {
+  const scaleUrl = [
+    "https://api.upbit.com/v1/candles/minutes/1",
+    "https://api.upbit.com/v1/candles/minutes/60",
+    "https://api.upbit.com/v1/candles/days",
+    "https://api.upbit.com/v1/candles/weeks",
+    "https://api.upbit.com/v1/candles/months",
+  ];
+
+  const { data }: any = await axios.get(
+    scaleUrl[scale] + `?market=${market}&count=${amount}`
+  );
+  return data;
 };
 
 export const getCommaNumber = (num: number): string => {

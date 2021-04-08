@@ -4,6 +4,7 @@ import { About } from "./Components/About/About";
 import { CoinComponent } from "./Components/Coin/CoinComponent";
 import { Home } from "./Components/Home/Home";
 import { Navigation } from "./Components/Navigation";
+import { Order } from "./Components/Order/Order";
 import {
   getRealTimeMarket,
   getSimpleMarket,
@@ -43,6 +44,7 @@ function App() {
         {loaded && menu === 1 && (
           <CoinComponent market={market} setMarket={setMarket} />
         )}
+        {loaded && menu === 2 && <Order />}
         {loaded && menu === 3 && <About />}
       </div>
       <Navigation menu={menu} setMenu={setMenu} />

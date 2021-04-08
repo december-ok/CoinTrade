@@ -26,6 +26,16 @@
 .Home .Content .HomeContent {
   transition: 250ms opacity; }
 
+.Home .Content .Market .MarketOverview {
+  position: relative; }
+  .Home .Content .Market .MarketOverview .MarketOverviewLabel {
+    font-weight: 700;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0); }
+  .Home .Content .Market .MarketOverview .MarketOverviewContent.Show {
+    max-height: none; }
+
 .Home .Content .Market .MarketSorter {
   display: flex;
   justify-content: space-around;
@@ -213,7 +223,8 @@
   bottom: 0;
   box-shadow: 0px 0px 16px #e8e8e8;
   display: flex;
-  background-color: white; }
+  background-color: white;
+  z-index: 9999999; }
   .Navigation button {
     background-color: transparent;
     border: transparent;
@@ -277,7 +288,8 @@
         border: 0px;
         font-size: 19px;
         font-weight: 700;
-        font-family: "Noto Sans KR", sans-serif; }
+        font-family: "Noto Sans KR", sans-serif;
+        background-color: transparent; }
       .Coin .Content .CoinInfo .CoinInfoHeader .DropdownMenu {
         position: absolute;
         top: 25px;
@@ -337,7 +349,7 @@
     font-size: 30px;
     font-weight: 700; }
 
-.OrderBook .OrderBookLoading {
+.OrderBook .Loading {
   display: flex;
   justify-content: space-around;
   margin-top: 10vh;
@@ -348,15 +360,21 @@
   grid-template-columns: 1fr 1fr 1fr; }
   .OrderBook .OrderBookLoaded .Label {
     font-weight: 700;
-    text-align: center; }
+    text-align: center;
+    margin-bottom: 5px; }
   .OrderBook .OrderBookLoaded .AskArea {
     display: grid;
     grid-template-rows: repeat(14, 1fr);
-    grid-gap: 5px;
-    justify-items: end;
-    align-items: center; }
+    grid-gap: 5px; }
+    .OrderBook .OrderBookLoaded .AskArea .AskBlock {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      height: 100%; }
     .OrderBook .OrderBookLoaded .AskArea p.Size {
-      font-size: 14px; }
+      font-size: 14px;
+      text-align: center; }
   .OrderBook .OrderBookLoaded .PriceArea {
     display: grid;
     grid-template-rows: repeat(14, 1fr);
@@ -374,11 +392,18 @@
     grid-template-rows: repeat(14, 1fr);
     grid-gap: 5px;
     align-items: center;
-    justify-items: start; }
+    justify-items: center; }
+    .OrderBook .OrderBookLoaded .BidArea .BidBlock {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      height: 100%; }
     .OrderBook .OrderBookLoaded .BidArea .OverBid {
       grid-row: 1 / 8; }
     .OrderBook .OrderBookLoaded .BidArea p.Size {
-      font-size: 14px; }
+      font-size: 14px;
+      text-align: center; }
 
 Body {
   font-family: "Noto Sans KR", sans-serif;
@@ -390,6 +415,9 @@ Body {
     margin-left: calc(5% / 2);
     transition: 250ms opacity;
     margin-bottom: 75px; }
+
+button {
+  border-bottom: 1px solid black; }
 
 .inActive {
   color: #8f8f8f; }

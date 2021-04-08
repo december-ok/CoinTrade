@@ -1,9 +1,58 @@
 import { useState } from "react";
+import { Bar } from "react-chartjs-2";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../Modules";
 import { MarketListArea } from "./MarketListArea";
 
 export function Market() {
   //0 = Volume, 1=Rise, 2=Fall 3=All
+  const Coin = useSelector((state: RootState) => state.Coin);
   const [sort, setSort] = useState(0);
+
+  const rawData = Array.from(Coin.values())
+    .map((item) => {
+      return item.change_rate;
+    })
+    .sort((a, b) => a - b);
+  const chartData = {
+    labels: rawData.map(() => ""),
+    datasets: [
+      {
+        backgroundColor: rawData.map((item) => {
+          if (item >= 0) {
+            return "#FF4B4B";
+          }
+          return "#3555FF";
+        }),
+        data: rawData.map((item) => Math.abs(item)),
+      },
+    ],
+  };
+  const chartOptions = {
+    // title: {
+    //   display: true,
+    //   text: "Market Overview",
+    //   fontSize: 16,
+    //   fontColor: "#000",
+    //   fontStyle: "bold",
+    // },
+    animation: {
+      duration: 0,
+    },
+    tooltips: { enabled: false },
+    hover: { mode: null },
+    legend: {
+      display: false,
+    },
+    scales: {
+      yAxes: [
+        {
+          display: false,
+        },
+      ],
+      xAxes: [{ display: false }],
+    },
+  };
 
   const marketListFadeAway = (num: number) => {
     document.querySelector(".MarketListArea")?.classList.add("fadeAway");
@@ -56,6 +105,12 @@ export function Market() {
 
   return (
     <div className="Market">
+      <div className="MarketOverview">
+        <p className="MarketOverviewLabel">Market Overview</p>
+        <div className="MarketOverviewContent">
+          <Bar data={chartData} options={chartOptions} height={100} />
+        </div>
+      </div>
       <div className="MarketSorter">
         <button onClick={onVolume}>
           <p className="VolumeP">Volume</p>

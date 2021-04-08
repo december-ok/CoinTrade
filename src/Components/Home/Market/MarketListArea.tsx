@@ -58,7 +58,6 @@ function SortCoins(sortType: number, coinList: CoinType[]): CoinType[] {
       return a.change_rate - b.change_rate;
     });
   } else {
-    //All
     returnCoins = coinList.sort((a, b) => {
       if (a.english_name.toLowerCase() < b.english_name.toLowerCase())
         return -1;
