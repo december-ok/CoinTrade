@@ -1,24 +1,21 @@
 import { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getChangeRate,
   getCommaNumber,
   getDetailData,
 } from "../../Controller/CoinController";
 import { RootState } from "../../Modules";
+import { setMarket } from "../../Modules/Client";
 import { CoinType } from "../CommonType";
 import Chart from "./Chart";
 import OrderBook from "./OrderBook";
 
-export function CoinComponent({
-  market,
-  setMarket,
-}: {
-  market: string;
-  setMarket: Function;
-}) {
+export function CoinComponent() {
   const Coin = useSelector((state: RootState) => state.Coin);
-  const CoinInfo = Coin.get(market) as CoinType;
+  const Client = useSelector((state: RootState) => state.Client);
+  const dispatch = useDispatch();
+  const CoinInfo = Coin.get(Client.market) as CoinType;
   const [searching, setSearching] = useState(false);
   const [contentMenu, setContentMenu] = useState(0);
   const CoinSelector = useRef<any>(null);
@@ -70,13 +67,13 @@ export function CoinComponent({
 
   useEffect(() => {
     (async () => {
-      CoinDetailSocket.current = await getDetailData(market);
+      CoinDetailSocket.current = await getDetailData(Client.market);
     })();
 
     return () => {
       CoinDetailSocket.current.close();
     };
-  }, [market]);
+  }, [Client.market]);
 
   return (
     <div className="Coin">
@@ -88,7 +85,9 @@ export function CoinComponent({
           <div className="CoinInfoHeader">
             <img
               alt="CoinImg"
-              src={`https://static.upbit.com/logos/${market.substring(4)}.png`}
+              src={`https://static.upbit.com/logos/${Client.market.substring(
+                4
+              )}.png`}
             />
             <input
               className="CoinSelector"
@@ -126,7 +125,7 @@ export function CoinComponent({
                           .querySelector(".Content")
                           ?.classList.add("fadeAway");
                         setTimeout(() => {
-                          setMarket(item.market);
+                          dispatch(setMarket(item.market));
                           document
                             .querySelector(".Content")
                             ?.classList.remove("fadeAway");

@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getChangeRate,
   getCommaNumber,
 } from "../../../Controller/CoinController";
 import { RootState } from "../../../Modules";
+import { setMarket, setMenu } from "../../../Modules/Client";
 import { CoinType } from "../../CommonType";
 
 export const CoinBlock = React.memo(
@@ -20,6 +21,16 @@ export const CoinBlock = React.memo(
   }: any) => {
     const priceSelector = useRef<HTMLDivElement>(null);
     const Coin: CoinType | any = useSelector((state: RootState) => state.Coin);
+    const dispatch = useDispatch();
+
+    const navigationFadeAway = (num: number, market: string) => {
+      document.querySelector(".ContentWrap")?.classList.add("fadeAway");
+      setTimeout(() => {
+        dispatch(setMarket(market));
+        dispatch(setMenu(num));
+        document.querySelector(".ContentWrap")?.classList.remove("fadeAway");
+      }, 250);
+    };
 
     useEffect(() => {
       if (priceSelector.current) {
@@ -35,7 +46,18 @@ export const CoinBlock = React.memo(
     }, [Coin, change]);
 
     return (
-      <div className="CoinBlock">
+      <div
+        className="CoinBlock"
+        onClick={() => {
+          document.querySelectorAll(".m-button").forEach((element) => {
+            element.classList.add("inActive");
+          });
+          document
+            .querySelector(".m-button.Coin")
+            ?.classList.remove("inActive");
+          navigationFadeAway(1, market);
+        }}
+      >
         <img
           alt="CoinImage"
           className="CoinBlockImg"

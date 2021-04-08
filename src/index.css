@@ -33,8 +33,22 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0); }
-  .Home .Content .Market .MarketOverview .MarketOverviewContent.Show {
-    max-height: none; }
+  .Home .Content .Market .MarketOverview .MarketOverviewLine {
+    display: flex;
+    justify-content: space-around; }
+    .Home .Content .Market .MarketOverview .MarketOverviewLine .OBlock {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      display: grid;
+      text-align: center;
+      height: 40px; }
+      .Home .Content .Market .MarketOverview .MarketOverviewLine .OBlock p.Amount {
+        font-size: 18px;
+        font-weight: 700; }
+    .Home .Content .Market .MarketOverview .MarketOverviewLine .MarketRise {
+      color: #ff4b4b; }
+    .Home .Content .Market .MarketOverview .MarketOverviewLine .MarketFall {
+      color: #3555ff; }
 
 .Home .Content .Market .MarketSorter {
   display: flex;

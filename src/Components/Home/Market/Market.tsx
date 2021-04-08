@@ -103,12 +103,38 @@ export function Market() {
     }
   };
 
+  const riseReducer = (accumulator: number, currentValue: number) => {
+    if (currentValue > 0) return accumulator + 1;
+    return accumulator;
+  };
+  const fallReducer = (accumulator: number, currentValue: number) => {
+    if (currentValue < 0) return accumulator + 1;
+    return accumulator;
+  };
+  const normalReducer = (accumulator: number, currentValue: number) => {
+    if (currentValue === 0) return accumulator + 1;
+    return accumulator;
+  };
   return (
     <div className="Market">
       <div className="MarketOverview">
         <p className="MarketOverviewLabel">Market Overview</p>
         <div className="MarketOverviewContent">
           <Bar data={chartData} options={chartOptions} height={100} />
+          <div className="MarketOverviewLine">
+            <div className="MarketRise OBlock">
+              <i className="fas fa-arrow-up"></i>
+              <p className="Amount">{rawData.reduce(riseReducer, 0)}</p>
+            </div>
+            <div className="MarketNormal OBlock">
+              <i className="fas fa-minus"></i>
+              <p className="Amount">{rawData.reduce(normalReducer, 0)}</p>
+            </div>
+            <div className="MarketFall OBlock">
+              <i className="fas fa-arrow-down"></i>
+              <p className="Amount">{rawData.reduce(fallReducer, 0)}</p>
+            </div>
+          </div>
         </div>
       </div>
       <div className="MarketSorter">

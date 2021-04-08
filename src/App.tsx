@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { About } from "./Components/About/About";
 import { CoinComponent } from "./Components/Coin/CoinComponent";
 import { Home } from "./Components/Home/Home";
@@ -10,6 +10,7 @@ import {
   getSimpleMarket,
 } from "./Controller/CoinController";
 import { decrypt, encrypt } from "./Controller/Crypto";
+import { RootState } from "./Modules";
 import {
   initialUpdate,
   initialState,
@@ -21,8 +22,7 @@ function App() {
   const dispatch = useDispatch();
   let socket = useRef<WebSocket | null>(null);
   const [loaded, setLoaded] = useState(false);
-  const [market, setMarket] = useState("KRW-BTC");
-  const [menu, setMenu] = useState(0);
+  const Client = useSelector((state: RootState) => state.Client);
 
   useEffect(() => {
     (async () => {
@@ -40,14 +40,12 @@ function App() {
   return (
     <div className="App">
       <div className="ContentWrap">
-        {loaded && menu === 0 && <Home />}
-        {loaded && menu === 1 && (
-          <CoinComponent market={market} setMarket={setMarket} />
-        )}
-        {loaded && menu === 2 && <Order />}
-        {loaded && menu === 3 && <About />}
+        {loaded && Client.menu === 0 && <Home />}
+        {loaded && Client.menu === 1 && <CoinComponent />}
+        {loaded && Client.menu === 2 && <Order />}
+        {loaded && Client.menu === 3 && <About />}
       </div>
-      <Navigation menu={menu} setMenu={setMenu} />
+      <Navigation />
     </div>
   );
 }

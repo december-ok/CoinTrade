@@ -3,9 +3,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../Modules";
 import { CoinType } from "../../CommonType";
 import { CoinBlock } from "./CoinBlock";
-import { MarketListType } from "../HomeInterface";
 
-export const MarketListArea = React.memo(({ sortType }: MarketListType) => {
+export const MarketListArea = React.memo(({ sortType }: any) => {
   const Coin = useSelector((state: RootState) => state.Coin);
   const [search, setSearch] = useState("");
 
@@ -67,5 +66,5 @@ function SortCoins(sortType: number, coinList: CoinType[]): CoinType[] {
     });
     return returnCoins;
   }
-  return returnCoins.splice(0, 15);
+  return returnCoins.splice(0, 10);
 }

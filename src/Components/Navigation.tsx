@@ -1,14 +1,21 @@
-export function Navigation({ menu, setMenu }: any) {
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../Modules";
+import { setMenu } from "../Modules/Client";
+
+export function Navigation() {
+  const Client = useSelector((state: RootState) => state.Client);
+  const dispatch = useDispatch();
+
   const navigationFadeAway = (num: number) => {
     document.querySelector(".ContentWrap")?.classList.add("fadeAway");
     setTimeout(() => {
-      setMenu(num);
+      dispatch(setMenu(num));
       document.querySelector(".ContentWrap")?.classList.remove("fadeAway");
     }, 250);
   };
 
   const onHomeClick = () => {
-    if (menu !== 0) {
+    if (Client.menu !== 0) {
       document.querySelectorAll(".m-button").forEach((element) => {
         element.classList.add("inActive");
       });
@@ -17,7 +24,7 @@ export function Navigation({ menu, setMenu }: any) {
     }
   };
   const onCoinClick = () => {
-    if (menu !== 1) {
+    if (Client.menu !== 1) {
       document.querySelectorAll(".m-button").forEach((element) => {
         element.classList.add("inActive");
       });
@@ -26,7 +33,7 @@ export function Navigation({ menu, setMenu }: any) {
     }
   };
   const onOrderClick = () => {
-    if (menu !== 2) {
+    if (Client.menu !== 2) {
       document.querySelectorAll(".m-button").forEach((element) => {
         element.classList.add("inActive");
       });
@@ -35,7 +42,7 @@ export function Navigation({ menu, setMenu }: any) {
     }
   };
   const onAboutClick = () => {
-    if (menu !== 3) {
+    if (Client.menu !== 3) {
       document.querySelectorAll(".m-button").forEach((element) => {
         element.classList.add("inActive");
       });

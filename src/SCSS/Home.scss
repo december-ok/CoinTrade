@@ -40,11 +40,26 @@
           left: 50%;
           transform: translate(-50%, 0);
         }
-        .MarketOverviewContent {
-          // max-height: 0px;
-        }
-        .MarketOverviewContent.Show {
-          max-height: none;
+        .MarketOverviewLine {
+          display: flex;
+          justify-content: space-around;
+          .OBlock {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            display: grid;
+            text-align: center;
+            height: 40px;
+            p.Amount {
+              font-size: 18px;
+              font-weight: 700;
+            }
+          }
+          .MarketRise {
+            color: #ff4b4b;
+          }
+          .MarketFall {
+            color: #3555ff;
+          }
         }
       }
       .MarketSorter {
