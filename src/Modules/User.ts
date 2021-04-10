@@ -103,32 +103,38 @@ export default function User(
       formerData = state.assetsList.filter(
         (item) => item.market === action.payload.market
       )[0];
+
       newData = {
         market: action.payload.market,
         averagePrice: formerData.quantity,
         quantity: formerData.quantity - action.payload.quantity,
       };
 
-      saveUserData({
-        ...state,
-        won: state.won + action.payload.sellPrice * action.payload.quantity,
-        assetsList: [
-          ...state.assetsList.filter(
-            (item) => item.market !== action.payload.market
-          ),
-          newData,
-        ],
-      });
-      return {
-        ...state,
-        won: state.won + action.payload.sellPrice * action.payload.quantity,
-        assetsList: [
-          ...state.assetsList.filter(
-            (item) => item.market !== action.payload.market
-          ),
-          newData,
-        ],
-      };
+      const returnData =
+        formerData.quantity - action.payload.quantity
+          ? {
+              ...state,
+              won:
+                state.won + action.payload.sellPrice * action.payload.quantity,
+              assetsList: [
+                ...state.assetsList.filter(
+                  (item) => item.market !== action.payload.market
+                ),
+                newData,
+              ],
+            }
+          : {
+              ...state,
+              won:
+                state.won + action.payload.sellPrice * action.payload.quantity,
+              assetsList: [
+                ...state.assetsList.filter(
+                  (item) => item.market !== action.payload.market
+                ),
+              ],
+            };
+      saveUserData(returnData);
+      return returnData;
     default:
       return state;
   }
