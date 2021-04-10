@@ -91,6 +91,7 @@ export const getChartData = async (
 ) => {
   const scaleUrl = [
     "https://api.upbit.com/v1/candles/minutes/1",
+    "https://api.upbit.com/v1/candles/minutes/30",
     "https://api.upbit.com/v1/candles/minutes/60",
     "https://api.upbit.com/v1/candles/days",
     "https://api.upbit.com/v1/candles/weeks",
@@ -105,6 +106,12 @@ export const getChartData = async (
 
 export const getCommaNumber = (num: number): string => {
   return Number(num.toFixed(2))
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+export const getIntCommaNumber = (num: number): string => {
+  return Number(num.toFixed(0))
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };

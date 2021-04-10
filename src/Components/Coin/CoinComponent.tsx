@@ -7,7 +7,7 @@ import {
 } from "../../Controller/CoinController";
 import { RootState } from "../../Modules";
 import { setMarket } from "../../Modules/Client";
-import { CoinType } from "../CommonType";
+import { CoinType } from "../../@types/CommonType";
 import Chart from "./Chart";
 import OrderBook from "./OrderBook";
 

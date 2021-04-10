@@ -6,7 +6,7 @@ import {
 } from "../../../Controller/CoinController";
 import { RootState } from "../../../Modules";
 import { setMarket, setMenu } from "../../../Modules/Client";
-import { CoinType } from "../../CommonType";
+import { CoinType } from "../../../@types/CommonType";
 
 export const CoinBlock = React.memo(
   ({

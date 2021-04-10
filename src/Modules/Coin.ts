@@ -1,4 +1,4 @@
-import { CoinType } from "../Components/CommonType";
+import { CoinType } from "../@types/CommonType";
 
 const SET_BASIC_MARKET = "Coin/SET_BASIC_MARKET" as const;
 const SET_SIMPLE_MARKET = "Coin/SET_SIMPLE_MARKET" as const;

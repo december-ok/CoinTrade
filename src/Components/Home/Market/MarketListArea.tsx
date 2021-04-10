@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../Modules";
-import { CoinType } from "../../CommonType";
+import { CoinType } from "../../../@types/CommonType";
 import { CoinBlock } from "./CoinBlock";
 
 export const MarketListArea = React.memo(({ sortType }: any) => {

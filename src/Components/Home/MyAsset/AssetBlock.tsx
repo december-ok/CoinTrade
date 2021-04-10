@@ -2,6 +2,7 @@ import React, { CSSProperties } from "react";
 import {
   getChangeRate,
   getCommaNumber,
+  getIntCommaNumber,
 } from "../../../Controller/CoinController";
 
 export const AssetBlock = React.memo(
@@ -35,7 +36,7 @@ export const AssetBlock = React.memo(
             <p className="AssetTicker">{market.substring(4)}</p>
           </div>
           <div className="Summary" style={{ color } as CSSProperties}>
-            <p className="TotalPrice">{getCommaNumber(totalPrice)}</p>
+            <p className="TotalPrice">{getIntCommaNumber(totalPrice)}</p>
             <p className="Quantity">
               {getCommaNumber(quantity) + " " + market.substr(4)}
             </p>

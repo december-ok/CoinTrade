@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getChangeRate,
   getCommaNumber,
+  getIntCommaNumber,
 } from "../../../Controller/CoinController";
 import { RootState } from "../../../Modules";
 import { AssetType, initialState, initialUpdate } from "../../../Modules/User";
-import { CoinType } from "../../CommonType";
+import { CoinType } from "../../../@types/CommonType";
 import { AssetBlock } from "./AssetBlock";
 import { saveUserData } from "../../../App";
 
@@ -61,11 +62,11 @@ export function MyAsset() {
           </p>
         </div>
         <div className="MyAssetValueAreaBody" ref={priceSelector}>
-          <p className="MyAssetValue">{getCommaNumber(totalValue)}</p>
+          <p className="MyAssetValue">{getIntCommaNumber(totalValue)}</p>
           <div className="MyAssetValueInfo">
             <p className="MyAssetChangePrice">
               {changePrice > 0 && "+"}
-              {getCommaNumber(changePrice)}
+              {getIntCommaNumber(changePrice)}
             </p>
             <p className="MyAssetChangeRate">
               {changePrice > 0 && "+"}
