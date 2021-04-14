@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import Coin from "./Coin";
-import User from "./User";
+import User from "./Account";
 import Client from "./Client";
 
 const rootReducer = combineReducers({

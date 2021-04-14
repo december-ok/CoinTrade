@@ -1,22 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { About } from "./Components/About/About";
-import { CoinComponent } from "./Components/Coin/CoinComponent";
-import { Home } from "./Components/Home/Home";
-import { Navigation } from "./Components/Navigation";
-import { Order } from "./Components/Order/Order";
-import {
-  getRealTimeMarket,
-  getSimpleMarket,
-} from "./Controller/CoinController";
-import { decrypt, encrypt } from "./Controller/Crypto";
-import { RootState } from "./Modules";
+import { About } from "./page/About";
+import { CoinComponent } from "./page/CoinComponent";
+import { Home } from "./page/Home";
+import { Navigation } from "./components/Navigation";
+import { Order } from "./page/Order";
+import { getRealTimeMarket, getSimpleMarket } from "./lib/CoinController";
+import { decrypt, encrypt } from "./lib/Crypto";
+import { RootState } from "./modules";
 import {
   initialUpdate,
   initialState,
   AssetType,
-  UserState,
-} from "./Modules/User";
+  AccountState,
+} from "./modules/Account";
+import { setContentWrapFadeOut } from "./modules/Client";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +28,7 @@ function App() {
       socket.current = await getRealTimeMarket(marketListString);
       setUserData(dispatch, marketList);
       setLoaded(true);
+      dispatch(setContentWrapFadeOut(false));
     })();
     return () => {
       if (socket.current) {
@@ -39,7 +38,11 @@ function App() {
   }, [dispatch]);
   return (
     <div className="App">
-      <div className="ContentWrap">
+      <div
+        className={
+          "ContentWrap" + (Client.contentWrapFadeOut ? " fadeAway" : "")
+        }
+      >
         {loaded && Client.menu === 0 && <Home />}
         {loaded && Client.menu === 1 && <CoinComponent />}
         {loaded && Client.menu === 2 && <Order />}
@@ -70,10 +73,10 @@ const setUserData = (dispatch: Function, marketList: string[]) => {
       })
     );
   } else {
-    saveUserData(initialState);
+    saveAccountData(initialState);
   }
 };
 
-export const saveUserData = (data: UserState) => {
+export const saveAccountData = (data: AccountState) => {
   localStorage.setItem("userData", encrypt(JSON.stringify(data)));
 };

@@ -13,3 +13,12 @@ npm i
 
 npm start
 ```
+
+## To do
+
+- [x] Control DOM with state
+- [x] Needs Number modules to calculate decimal correctly - Big.js
+
+## Doing
+
+- [ ] Structure Optimization

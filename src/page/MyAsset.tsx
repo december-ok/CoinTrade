@@ -1,15 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getChangeRate,
   getCommaNumber,
   getIntCommaNumber,
-} from "../../../Controller/CoinController";
-import { RootState } from "../../../Modules";
-import { AssetType, initialState, initialUpdate } from "../../../Modules/User";
-import { CoinType } from "../../../@types/CommonType";
-import { AssetBlock } from "./AssetBlock";
-import { saveUserData } from "../../../App";
+} from "../lib/CoinController";
+import { RootState } from "../modules";
+import { AssetType, initialState, initialUpdate } from "../modules/Account";
+import { CoinType } from "../@types/CommonType";
+import { AssetBlock } from "../components/MyAsset/AssetBlock";
+import { saveAccountData } from "../App";
+import { sendServerUserData } from "../lib/UserController";
 
 export function MyAsset() {
   const User = useSelector((state: RootState) => state.User);
@@ -23,7 +24,7 @@ export function MyAsset() {
       randNumber === prompt(`If you want to RESET ASSET, enter ${randNumber}.`)
     ) {
       dispatch(initialUpdate(initialState));
-      saveUserData(initialState);
+      saveAccountData(initialState);
       alert("Asset has been RESET!");
     }
   };
@@ -40,17 +41,9 @@ export function MyAsset() {
   const changePrice = totalValue - User.startValue;
   const changeRate = changePrice / User.startValue;
 
-  useEffect(() => {
-    if (priceSelector.current) {
-      if (changePrice > 0) {
-        priceSelector.current.style.color = "#FF4B4B";
-      } else if (changePrice < 0) {
-        priceSelector.current.style.color = "#3555FF";
-      } else {
-        priceSelector.current.style.color = "#000000";
-      }
-    }
-  });
+  if (priceSelector.current)
+    priceSelector.current.style.color =
+      changePrice > 0 ? "#FF4B4B" : changePrice < 0 ? "#3555FF" : "#000000";
 
   return (
     <div className="MyAsset">
@@ -96,7 +89,7 @@ export function MyAsset() {
           )}
           {User.assetsList
             .sort(
-              (a, b) =>
+              (b, a) =>
                 a.quantity * (Coin.get(a.market) as CoinType).trade_price -
                 b.quantity * (Coin.get(b.market) as CoinType).trade_price
             )

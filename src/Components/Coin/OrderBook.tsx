@@ -1,4 +1,4 @@
-import { getChangeRate, getCommaNumber } from "../../Controller/CoinController";
+import { getChangeRate, getCommaNumber } from "../../lib/CoinController";
 import { CoinType } from "../../@types/CommonType";
 
 export default function OrderBook({ CoinInfo }: { CoinInfo: CoinType }) {

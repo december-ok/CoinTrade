@@ -1,6 +1,6 @@
 import { createChart, CrosshairMode } from "lightweight-charts";
 import { useEffect, useRef, useState } from "react";
-import { getChartData } from "../../Controller/CoinController";
+import { getChartData } from "../../lib/CoinController";
 import { CoinType } from "../../@types/CommonType";
 
 export default function Chart({ CoinInfo }: { CoinInfo: CoinType }) {
@@ -17,8 +17,7 @@ export default function Chart({ CoinInfo }: { CoinInfo: CoinType }) {
     (async () => {
       const receivedData = await getChartData(CoinInfo.market, scale, 200);
       ChartData.current = receivedData;
-      return receivedData;
-    })().then((receivedData) => {
+    })().then(() => {
       Chart.current = createChart(
         document.querySelector(".Chart") as HTMLElement,
         {

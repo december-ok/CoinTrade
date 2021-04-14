@@ -5,7 +5,7 @@ import {
   setDetailMarket,
   setRealMarket,
   setSimpleMarket,
-} from "../Modules/Coin";
+} from "../modules/Coin";
 
 export const getSimpleMarket = async () => {
   let { data: hi } = await axios.get("https://api.upbit.com/v1/market/all");

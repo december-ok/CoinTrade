@@ -1,15 +1,22 @@
 import React, { CSSProperties } from "react";
+import { useDispatch } from "react-redux";
 import {
   getChangeRate,
   getCommaNumber,
   getIntCommaNumber,
-} from "../../../Controller/CoinController";
+} from "../../lib/CoinController";
+import {
+  setContentWrapFadeOut,
+  setMarket,
+  setMenu,
+} from "../../modules/Client";
 
 export const AssetBlock = React.memo(
   ({
     coin: { market, english_name, trade_price, change: lastChange },
     asset: { quantity, averagePrice },
   }: any) => {
+    const dispatch = useDispatch();
     const totalPrice = quantity * trade_price;
     const startPrice = quantity * averagePrice;
 
@@ -23,8 +30,21 @@ export const AssetBlock = React.memo(
         ? "#3555FF"
         : "#000000";
 
+    const navigationFadeAway = (market: string) => {
+      dispatch(setContentWrapFadeOut(true));
+      setTimeout(() => {
+        dispatch(setMarket(market));
+        dispatch(setMenu(1));
+        dispatch(setContentWrapFadeOut(false));
+      }, 250);
+    };
     return (
-      <div className="AssetBlock">
+      <div
+        className="AssetBlock"
+        onClick={() => {
+          navigationFadeAway(market);
+        }}
+      >
         <div className="AssetBlockHeader">
           <img
             alt="CoinImage"

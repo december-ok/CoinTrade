@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCommaNumber } from "../../Controller/CoinController";
-import { RootState } from "../../Modules";
-import { sellCoin } from "../../Modules/User";
+import { getCommaNumber } from "../../lib/CoinController";
+import { RootState } from "../../modules";
+import { sellCoin } from "../../modules/Account";
 
 export function Sell({ CoinInfo }: any) {
   const User = useSelector((state: RootState) => state.User);
@@ -41,7 +41,9 @@ export function Sell({ CoinInfo }: any) {
         >
           <option value="">Select</option>
           {Array.from(new Array(20), (x, i) => 5 * (1 + i)).map((i) => (
-            <option value={i}>{i}%</option>
+            <option key={i} value={i}>
+              {i}%
+            </option>
           ))}
         </select>
         <p className="PriceL L">Price</p>
