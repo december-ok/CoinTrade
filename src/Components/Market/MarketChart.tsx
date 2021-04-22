@@ -4,7 +4,9 @@ export interface MarketChartProps {
   rawData: number[];
 }
 
-export function MarketChart({ rawData }: MarketChartProps) {
+export const MarketChart: React.FC<MarketChartProps> = ({
+  rawData,
+}: MarketChartProps) => {
   const chartData = {
     labels: rawData.map(() => ""),
     datasets: [
@@ -36,4 +38,4 @@ export function MarketChart({ rawData }: MarketChartProps) {
   };
 
   return <Bar data={chartData} options={chartOptions} height={100} />;
-}
+};

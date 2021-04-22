@@ -1,4 +1,4 @@
-export type CoinType = {
+export interface CoinType {
   market: string;
   english_name: string;
   korean_name: string;
@@ -29,9 +29,9 @@ export type CoinType = {
   trade_timestamp: Date;
   trade_volume: number;
   order_book?: OrderBookType;
-};
+}
 
-export type OrderBookType = {
+export interface OrderBookType {
   code: string;
   length: number;
   stream_type: string;
@@ -45,4 +45,4 @@ export type OrderBookType = {
     ask_size: number;
     bid_size: number;
   }[];
-};
+}

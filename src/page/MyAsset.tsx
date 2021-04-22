@@ -1,19 +1,14 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getChangeRate,
-  getCommaNumber,
-  getIntCommaNumber,
-} from "../lib/CoinController";
-import { RootState } from "../modules";
-import { AssetType, initialState, initialUpdate } from "../modules/Account";
-import { CoinType } from "../@types/CommonType";
-import { AssetBlock } from "../components/MyAsset/AssetBlock";
 import { saveAccountData } from "../App";
-import { sendServerUserData } from "../lib/UserController";
-
-export function MyAsset() {
-  const User = useSelector((state: RootState) => state.User);
+import { getCommaNumber, getIntCommaNumber } from "../lib/CoinController";
+import { RootState } from "../Modules";
+import { AssetType, initialState, initialUpdate } from "../Modules/Account";
+import { CoinType } from "./../@types/CommonType";
+import { getChangeRate } from "./../lib/CoinController";
+import { AssetBlock } from "./../Components/MyAsset/AssetBlock";
+export const MyAsset: React.FC = () => {
+  const User = useSelector((state: RootState) => state.Account);
   const Coin = useSelector((state: RootState) => state.Coin);
   const dispatch = useDispatch();
   const priceSelector = useRef<HTMLDivElement>(null);
@@ -104,4 +99,4 @@ export function MyAsset() {
       </div>
     </div>
   );
-}
+};

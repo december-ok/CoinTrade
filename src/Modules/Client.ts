@@ -32,10 +32,10 @@ const initialState: ClientState = {
   contentWrapFadeOut: true,
 };
 
-export default function Client(
+export const Client = (
   state: ClientState = initialState,
   action: ClientAction
-): ClientState {
+): ClientState => {
   switch (action.type) {
     case SET_MENU:
       return { ...state, menu: action.payload };
@@ -46,4 +46,4 @@ export default function Client(
     default:
       return state;
   }
-}
+};

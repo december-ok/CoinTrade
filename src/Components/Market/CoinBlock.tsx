@@ -1,13 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getChangeRate, getCommaNumber } from "../../lib/CoinController";
-import { RootState } from "../../modules";
-import {
-  setContentWrapFadeOut,
-  setMarket,
-  setMenu,
-} from "../../modules/Client";
 import { CoinType } from "../../@types/CommonType";
+import { RootState } from "../../Modules";
+import { setContentWrapFadeOut, setMarket } from "../../Modules/Client";
+import { setMenu } from "./../../Modules/Client";
 
 export const CoinBlock = React.memo(
   ({

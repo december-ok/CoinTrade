@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../modules";
+import { RootState } from "../Modules";
 import { CoinType } from "../@types/CommonType";
-import Chart from "../components/Coin/Chart";
-import OrderBook from "../components/Coin/OrderBook";
-import { CoinInfoComponent } from "../components/Coin/CoinInfoComponent";
-import { getDetailData } from "../lib/CoinController";
+import { getDetailData } from "./../lib/CoinController";
+import { CoinInfoComponent } from "../Components/Coin/CoinInfoComponent";
+import OrderBook from "./../Components/Coin/OrderBook";
+import Chart from "./../Components/Coin/Chart";
 
-export function CoinComponent() {
+export const CoinComponent: React.FC = () => {
   const Coin = useSelector((state: RootState) => state.Coin);
   const Client = useSelector((state: RootState) => state.Client);
   const CoinInfo = Coin.get(Client.market) as CoinType;
@@ -71,4 +71,4 @@ export function CoinComponent() {
       </div>
     </div>
   );
-}
+};

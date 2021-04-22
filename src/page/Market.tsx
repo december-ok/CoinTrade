@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../modules";
-import { MarketListArea } from "../components/Market/MarketListArea";
-import { MarketChart } from "../components/Market/MarketChart";
+import { MarketChart } from "../Components/Market/MarketChart";
+import { MarketListArea } from "../Components/Market/MarketListArea";
+import { RootState } from "../Modules";
 
-export function Market() {
+export const Market: React.FC = () => {
   //0 = Volume, 1=Rise, 2=Fall 3=All
   const Coin = useSelector((state: RootState) => state.Coin);
   const [sort, setSort] = useState(0);
@@ -85,4 +85,4 @@ export function Market() {
       />
     </div>
   );
-}
+};

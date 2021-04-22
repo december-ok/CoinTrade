@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCommaNumber } from "../../lib/CoinController";
-import { RootState } from "../../modules";
-import { buyCoin } from "../../modules/Account";
+import { RootState } from "../../Modules";
+import { buyCoin } from "../../Modules/Account";
 
 export function Buy({ CoinInfo }: any) {
-  const User = useSelector((state: RootState) => state.User);
+  const User = useSelector((state: RootState) => state.Account);
   const Quantity = useRef<any>();
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);

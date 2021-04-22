@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { CoinType } from "../@types/CommonType";
-import { RootState } from "../modules";
-import { Buy } from "../components/Order/Buy";
-import { Sell } from "../components/Order/Sell";
-import { CoinInfoComponent } from "../components/Coin/CoinInfoComponent";
+import { Buy } from "../Components/Order/Buy";
+import { RootState } from "../Modules";
+import { Sell } from "./../Components/Order/Sell";
+import { CoinInfoComponent } from "../Components/Coin/CoinInfoComponent";
 
-export function Order() {
+export const Order: React.FC = () => {
   const Client = useSelector((state: RootState) => state.Client);
   const Coin = useSelector((state: RootState) => state.Coin);
   const CoinInfo = Coin.get(Client.market) as CoinType;
@@ -52,4 +52,4 @@ export function Order() {
       </div>
     </div>
   );
-}
+};

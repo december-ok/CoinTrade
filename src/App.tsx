@@ -1,20 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { About } from "./page/About";
-import { CoinComponent } from "./page/CoinComponent";
-import { Home } from "./page/Home";
-import { Navigation } from "./components/Navigation";
-import { Order } from "./page/Order";
 import { getRealTimeMarket, getSimpleMarket } from "./lib/CoinController";
 import { decrypt, encrypt } from "./lib/Crypto";
-import { RootState } from "./modules";
+import { RootState } from "./Modules";
+import { CoinComponent } from "./page/CoinComponent";
+import { Order } from "./page/Order";
+import { About } from "./page/About";
+import { Navigation } from "./Components/Navigation";
+
 import {
-  initialUpdate,
-  initialState,
-  AssetType,
   AccountState,
-} from "./modules/Account";
-import { setContentWrapFadeOut } from "./modules/Client";
+  AssetType,
+  initialState,
+  initialUpdate,
+} from "./Modules/Account";
+import { setContentWrapFadeOut } from "./Modules/Client";
+import { Home } from "./page/Home";
 
 function App() {
   const dispatch = useDispatch();

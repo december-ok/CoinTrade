@@ -5,11 +5,8 @@ import {
   getCommaNumber,
   getIntCommaNumber,
 } from "../../lib/CoinController";
-import {
-  setContentWrapFadeOut,
-  setMarket,
-  setMenu,
-} from "../../modules/Client";
+import { setContentWrapFadeOut, setMarket } from "../../Modules/Client";
+import { setMenu } from "./../../Modules/Client";
 
 export const AssetBlock = React.memo(
   ({

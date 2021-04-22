@@ -34,10 +34,10 @@ type CoinState = Map<string, any>;
 
 const initialState: CoinState = new Map<string, any>();
 
-export default function Coin(
+export const Coin = (
   state: CoinState = initialState,
   action: CoinAction
-): CoinState {
+): CoinState => {
   let newCoinState = new Map<string, any>();
   state.forEach((value, key) => {
     newCoinState.set(key, value);
@@ -68,4 +68,4 @@ export default function Coin(
     default:
       return state;
   }
-}
+};

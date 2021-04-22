@@ -2,14 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CoinType } from "../../@types/CommonType";
 import { getChangeRate, getCommaNumber } from "../../lib/CoinController";
-import { RootState } from "../../modules";
-import { setMarket } from "../../modules/Client";
+import { RootState } from "../../Modules";
+import { setMarket } from "../../Modules/Client";
 
 export interface CoinInfoComponentProps {
   setFadeAway: Function;
 }
 
-export function CoinInfoComponent({ setFadeAway }: CoinInfoComponentProps) {
+export const CoinInfoComponent = ({ setFadeAway }: CoinInfoComponentProps) => {
   const Coin: CoinType | any = useSelector((state: RootState) => state.Coin);
   const Client = useSelector((state: RootState) => state.Client);
   const CoinInfo = Coin.get(Client.market);
@@ -106,4 +106,4 @@ export function CoinInfoComponent({ setFadeAway }: CoinInfoComponentProps) {
       </div>
     </div>
   );
-}
+};

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../modules";
-import { setContentWrapFadeOut, setMenu } from "../modules/Client";
+import { RootState } from "../Modules";
+import { setContentWrapFadeOut, setMenu } from "../Modules/Client";
 
 export function Navigation() {
   const Client = useSelector((state: RootState) => state.Client);

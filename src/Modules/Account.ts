@@ -52,10 +52,10 @@ export const initialState: AccountState = {
   assetsList: [],
 };
 
-export default function Account(
+export const Account = (
   state: AccountState = initialState,
   action: AccountAction
-): AccountState {
+): AccountState => {
   let newState;
   switch (action.type) {
     case INITIAL_UPDATE:
@@ -71,7 +71,7 @@ export default function Account(
     default:
       return state;
   }
-}
+};
 
 const buyCoinReducer = (
   state: AccountState,
