@@ -4,15 +4,24 @@ import {
   getChangeRate,
   getCommaNumber,
   getIntCommaNumber,
-} from "../../lib/CoinController";
-import { setContentWrapFadeOut, setMarket } from "../../Modules/Client";
-import { setMenu } from "./../../Modules/Client";
+} from "../../lib/coinController";
+import { setContentWrapFadeOut, setMarket } from "../../modules/Client";
+import { setMenu } from "./../../modules/Client";
+import { CoinType } from "./../../@types/CommonType";
+
+interface AssetBlockProps {
+  coin: CoinType;
+  asset: {
+    quantity: number;
+    averagePrice: number;
+  };
+}
 
 export const AssetBlock = React.memo(
   ({
     coin: { market, english_name, trade_price, change: lastChange },
     asset: { quantity, averagePrice },
-  }: any) => {
+  }: AssetBlockProps) => {
     const dispatch = useDispatch();
     const totalPrice = quantity * trade_price;
     const startPrice = quantity * averagePrice;

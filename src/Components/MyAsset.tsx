@@ -1,12 +1,12 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { saveAccountData } from "../App";
-import { getCommaNumber, getIntCommaNumber } from "../lib/CoinController";
-import { RootState } from "../Modules";
-import { AssetType, initialState, initialUpdate } from "../Modules/Account";
+import { getCommaNumber, getIntCommaNumber } from "../lib/coinController";
+import { RootState } from "../modules";
+import { AssetType, initialState, initialUpdate } from "../modules/Account";
 import { CoinType } from "./../@types/CommonType";
-import { getChangeRate } from "./../lib/CoinController";
-import { AssetBlock } from "./../Components/MyAsset/AssetBlock";
+import { getChangeRate } from "../lib/coinController";
+import { AssetBlock } from "./../components/MyAsset/AssetBlock";
 export const MyAsset: React.FC = () => {
   const User = useSelector((state: RootState) => state.Account);
   const Coin = useSelector((state: RootState) => state.Coin);
@@ -90,7 +90,7 @@ export const MyAsset: React.FC = () => {
             )
             .map((item) => (
               <AssetBlock
-                coin={Coin.get(item.market)}
+                coin={Coin.get(item.market) as CoinType}
                 asset={item}
                 key={item.market}
               />

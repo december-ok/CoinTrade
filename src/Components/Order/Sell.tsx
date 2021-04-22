@@ -1,12 +1,17 @@
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCommaNumber } from "../../lib/CoinController";
-import { RootState } from "../../Modules";
-import { sellCoin } from "./../../Modules/Account";
+import { getCommaNumber } from "../../lib/coinController";
+import { RootState } from "../../modules";
+import { sellCoin } from "./../../modules/Account";
+import { CoinType } from "./../../@types/CommonType";
 
-export function Sell({ CoinInfo }: any) {
+interface SellProps {
+  CoinInfo: CoinType;
+}
+
+export function Sell({ CoinInfo }: SellProps) {
   const User = useSelector((state: RootState) => state.Account);
-  const Quantity = useRef<any>();
+  const Quantity = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);
 
@@ -35,7 +40,8 @@ export function Sell({ CoinInfo }: any) {
           onChange={(e) => {
             const calculatedValue =
               leftQuantity * Number(Number(e.target.value) / 100);
-            Quantity.current.value = calculatedValue.toFixed(2);
+            if (Quantity.current)
+              Quantity.current.value = calculatedValue.toFixed(2);
             setQuantity(Number(calculatedValue.toFixed(2)));
           }}
         >
@@ -66,7 +72,7 @@ export function Sell({ CoinInfo }: any) {
                 })
               );
               alert("The purchase has been Successfully concluded.");
-              Quantity.current.value = "0";
+              if (Quantity.current) Quantity.current.value = "0";
             } else {
               alert("Failed to purchase.");
             }

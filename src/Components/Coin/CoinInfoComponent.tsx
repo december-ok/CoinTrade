@@ -1,23 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CoinType } from "../../@types/CommonType";
-import { getChangeRate, getCommaNumber } from "../../lib/CoinController";
-import { RootState } from "../../Modules";
-import { setMarket } from "../../Modules/Client";
+import { RootState } from "../../modules";
+import { setMarket } from "../../modules/Client";
+import { getCommaNumber, getChangeRate } from "../../lib/coinController";
 
 export interface CoinInfoComponentProps {
   setFadeAway: Function;
 }
 
 export const CoinInfoComponent = ({ setFadeAway }: CoinInfoComponentProps) => {
-  const Coin: CoinType | any = useSelector((state: RootState) => state.Coin);
+  const Coin = useSelector((state: RootState) => state.Coin);
   const Client = useSelector((state: RootState) => state.Client);
-  const CoinInfo = Coin.get(Client.market);
+  const CoinInfo = Coin.get(Client.market) as CoinType;
   const dispatch = useDispatch();
 
   const [searching, setSearching] = useState(false);
-  const CoinSelector = useRef<any>();
-  const Dropdown = useRef<any>();
+  const CoinSelector = useRef<HTMLInputElement>(null);
+  const Dropdown = useRef<HTMLDivElement>(null);
   const changeColor =
     CoinInfo.change === "RISE"
       ? "#FF4B4B"
@@ -26,7 +26,8 @@ export const CoinInfoComponent = ({ setFadeAway }: CoinInfoComponentProps) => {
       : "#000000";
 
   useEffect(() => {
-    CoinSelector.current.value = CoinInfo.english_name;
+    if (CoinSelector.current)
+      CoinSelector.current.value = CoinInfo.english_name;
   }, [CoinInfo.english_name]);
   useEffect(() => {
     document.title =
@@ -46,12 +47,13 @@ export const CoinInfoComponent = ({ setFadeAway }: CoinInfoComponentProps) => {
           ref={CoinSelector}
           onFocus={(e) => {
             e.target.value = "";
-            Dropdown.current.classList.add("Show");
+            if (Dropdown.current) Dropdown.current.classList.add("Show");
             setSearching(true);
           }}
           onBlur={() => {
-            CoinSelector.current.value = CoinInfo.english_name;
-            Dropdown.current.classList.remove("Show");
+            if (CoinSelector.current)
+              CoinSelector.current.value = CoinInfo.english_name;
+            if (Dropdown.current) Dropdown.current.classList.remove("Show");
             setTimeout(() => {
               setSearching(false);
             }, 250);
@@ -60,15 +62,16 @@ export const CoinInfoComponent = ({ setFadeAway }: CoinInfoComponentProps) => {
         <div className="DropdownMenu" ref={Dropdown}>
           {searching &&
             Array.from(Coin.values())
-              .filter((item: any) => {
-                const lowerSearch = CoinSelector.current.value.toLowerCase();
+              .filter((item: CoinType) => {
+                const lowerSearch =
+                  CoinSelector.current?.value.toLowerCase() || "";
                 return (
                   item.english_name.toLowerCase().includes(lowerSearch) ||
                   item.korean_name.includes(lowerSearch) ||
                   item.market.substr(4).toLowerCase().includes(lowerSearch)
                 );
               })
-              .map((item: any) => (
+              .map((item: CoinType) => (
                 <button
                   className="DropdownCoinBlock"
                   key={item.market}

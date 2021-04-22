@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { MarketChart } from "../Components/Market/MarketChart";
-import { MarketListArea } from "../Components/Market/MarketListArea";
-import { RootState } from "../Modules";
+import { MarketChart } from "../components/Market/MarketChart";
+import { MarketListArea } from "../components/Market/MarketListArea";
+import { RootState } from "../modules";
 
 export const Market: React.FC = () => {
   //0 = Volume, 1=Rise, 2=Fall 3=All

@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../Modules";
+import { RootState } from "../modules";
 import { CoinType } from "../@types/CommonType";
-import { getDetailData } from "./../lib/CoinController";
-import { CoinInfoComponent } from "../Components/Coin/CoinInfoComponent";
-import OrderBook from "./../Components/Coin/OrderBook";
-import Chart from "./../Components/Coin/Chart";
+import { CoinInfoComponent } from "../components/Coin/CoinInfoComponent";
+import OrderBook from "./../components/Coin/OrderBook";
+import Chart from "./../components/Coin/Chart";
+import { getDetailData } from "../lib/coinController";
 
 export const CoinComponent: React.FC = () => {
   const Coin = useSelector((state: RootState) => state.Coin);
@@ -14,7 +14,7 @@ export const CoinComponent: React.FC = () => {
   const [contentMenu, setContentMenu] = useState(0);
   const [fadeAway, setFadeAway] = useState(false);
   const [contentFadeAway, setContentFadeAway] = useState(false);
-  const CoinDetailSocket = useRef<any>(null);
+  const CoinDetailSocket = useRef<WebSocket>();
 
   const CoinContentFadeAway = (contentMenu: number) => {
     setFadeAway(true);
@@ -36,7 +36,7 @@ export const CoinComponent: React.FC = () => {
     })();
 
     return () => {
-      CoinDetailSocket.current.close();
+      if (CoinDetailSocket.current) CoinDetailSocket.current.close();
     };
   }, [Client.market]);
 

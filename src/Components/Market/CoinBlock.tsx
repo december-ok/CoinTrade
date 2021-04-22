@@ -1,10 +1,20 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getChangeRate, getCommaNumber } from "../../lib/CoinController";
-import { CoinType } from "../../@types/CommonType";
-import { RootState } from "../../Modules";
-import { setContentWrapFadeOut, setMarket } from "../../Modules/Client";
-import { setMenu } from "./../../Modules/Client";
+import { getChangeRate, getCommaNumber } from "../../lib/coinController";
+import { RootState } from "../../modules";
+import { setContentWrapFadeOut, setMarket } from "../../modules/Client";
+import { setMenu } from "./../../modules/Client";
+
+interface CoinBlockProps {
+  coin: {
+    market: string;
+    change: string;
+    english_name: string;
+    trade_price: number;
+    change_price: number;
+    change_rate: number;
+  };
+}
 
 export const CoinBlock = React.memo(
   ({
@@ -16,9 +26,9 @@ export const CoinBlock = React.memo(
       change_price,
       change_rate,
     },
-  }: any) => {
+  }: CoinBlockProps) => {
     const priceSelector = useRef<HTMLDivElement>(null);
-    const Coin: CoinType | any = useSelector((state: RootState) => state.Coin);
+    const Coin = useSelector((state: RootState) => state.Coin);
     const dispatch = useDispatch();
 
     const navigationFadeAway = (market: string) => {

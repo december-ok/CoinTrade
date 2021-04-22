@@ -4,8 +4,8 @@ import {
   setBasicMarket,
   setDetailMarket,
   setRealMarket,
-} from "../Modules/Coin";
-import { setSimpleMarket } from "./../Modules/Coin";
+} from "../modules/Coin";
+import { setSimpleMarket } from "../modules/Coin";
 
 export const getSimpleMarket = async () => {
   let { data: hi } = await axios.get("https://api.upbit.com/v1/market/all");
@@ -87,7 +87,8 @@ export const getDetailData = async (market: string): Promise<WebSocket> => {
 export const getChartData = async (
   market: string,
   scale: number,
-  amount: number
+  amount: number,
+  time: string = ""
 ) => {
   const scaleUrl = [
     "https://api.upbit.com/v1/candles/minutes/1",
@@ -99,7 +100,7 @@ export const getChartData = async (
   ];
 
   const { data }: any = await axios.get(
-    scaleUrl[scale] + `?market=${market}&count=${amount}`
+    scaleUrl[scale] + `?market=${market}&count=${amount}&to=${time}`
   );
   return data;
 };

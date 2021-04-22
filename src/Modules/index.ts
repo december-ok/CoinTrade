@@ -1,9 +1,9 @@
+import { combineReducers } from "redux";
 import { Account } from "./Account";
 import { Client } from "./Client";
 import { Coin } from "./Coin";
-import { combineReducers } from "redux";
 
-const rootReducer = combineReducers({ Coin, Client, Account });
+const rootReducer = combineReducers({ Account, Client, Coin });
 
 export default rootReducer;
 
