@@ -7,7 +7,7 @@ import OrderBook from "./../components/Coin/OrderBook";
 import Chart from "./../components/Coin/Chart";
 import { getDetailData } from "../lib/coinController";
 
-export const CoinComponent: React.FC = () => {
+export default function CoinComponent() {
   const Coin = useSelector((state: RootState) => state.Coin);
   const Client = useSelector((state: RootState) => state.Client);
   const CoinInfo = Coin.get(Client.market) as CoinType;
@@ -71,4 +71,4 @@ export const CoinComponent: React.FC = () => {
       </div>
     </div>
   );
-};
+}

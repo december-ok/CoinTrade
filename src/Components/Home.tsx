@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Market } from "./Market";
 import { MyAsset } from "./MyAsset";
 
-export const Home: React.FC = () => {
+export default function Home() {
   const [isMarket, setIsMarket] = useState(true);
   const [fadeAway, setFadeAway] = useState(true);
 
@@ -49,4 +49,4 @@ export const Home: React.FC = () => {
       </div>
     </div>
   );
-};
+}

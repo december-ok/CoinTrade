@@ -6,7 +6,7 @@ import { RootState } from "../modules";
 import { Sell } from "./../components/Order/Sell";
 import { CoinInfoComponent } from "../components/Coin/CoinInfoComponent";
 
-export const Order: React.FC = () => {
+export default function Order() {
   const Client = useSelector((state: RootState) => state.Client);
   const Coin = useSelector((state: RootState) => state.Coin);
   const CoinInfo = Coin.get(Client.market) as CoinType;
@@ -52,4 +52,4 @@ export const Order: React.FC = () => {
       </div>
     </div>
   );
-};
+}

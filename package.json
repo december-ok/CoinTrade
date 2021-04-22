@@ -1,9 +1,10 @@
 {
-  "homepag1e": "http://december-ok.github.io/CoinTrade",
+  "homepage": "http://december-ok.github.io/CoinTrade",
   "name": "cointrade",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@loadable/component": "^5.14.1",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -11,6 +12,7 @@
     "@types/crypto-js": "^4.0.1",
     "@types/dateformat": "^3.0.1",
     "@types/jest": "^26.0.22",
+    "@types/loadable__component": "^5.13.3",
     "@types/node": "^12.20.7",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",

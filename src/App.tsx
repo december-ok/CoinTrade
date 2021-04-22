@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./modules";
-import { CoinComponent } from "./components/CoinComponent";
-import { Order } from "./components/Order";
-import { About } from "./components/About";
 import { Navigation } from "./components/Navigation";
 import {
   AccountState,
@@ -12,9 +9,14 @@ import {
   initialUpdate,
 } from "./modules/Account";
 import { setContentWrapFadeOut } from "./modules/Client";
-import { Home } from "./components/Home";
 import { getRealTimeMarket, getSimpleMarket } from "./lib/coinController";
 import { decrypt, encrypt } from "./lib/crypto";
+import loadable from "@loadable/component";
+
+const HomePage = loadable(() => import("./components/Home"));
+const CoinPage = loadable(() => import("./components/CoinComponent"));
+const OrderPage = loadable(() => import("./components/Order"));
+const AboutPage = loadable(() => import("./components/About"));
 
 function App() {
   const dispatch = useDispatch();
@@ -43,10 +45,10 @@ function App() {
           "ContentWrap" + (Client.contentWrapFadeOut ? " fadeAway" : "")
         }
       >
-        {loaded && Client.menu === 0 && <Home />}
-        {loaded && Client.menu === 1 && <CoinComponent />}
-        {loaded && Client.menu === 2 && <Order />}
-        {loaded && Client.menu === 3 && <About />}
+        {loaded && Client.menu === 0 && <HomePage />}
+        {loaded && Client.menu === 1 && <CoinPage />}
+        {loaded && Client.menu === 2 && <OrderPage />}
+        {loaded && Client.menu === 3 && <AboutPage />}
       </div>
       <Navigation />
     </div>

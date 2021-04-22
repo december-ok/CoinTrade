@@ -18,6 +18,8 @@ npm start
 
 - [x] Control DOM with state
 - [x] Needs Number modules to calculate decimal correctly - Big.js
+- [x] Remove any type
+- [x] code spliting
 
 ## Doing
 

@@ -103,8 +103,9 @@ export default function Chart({ CoinInfo }: { CoinInfo: CoinType }) {
   }, [CoinInfo.market, scale]);
   Chart.current?.resize(chartWidth, chartHeight);
 
-  if (!formerDataLoading && Chart.current && ChartData.current) {
+  if (!formerDataLoading && Chart.current && ChartData.current?.length) {
     const chartTimeFrom = Chart.current.timeScale().getVisibleRange()?.from;
+    console.log(ChartData, scale);
     const dataTimeFrom =
       ChartData.current[ChartData.current.length - 1].timestamp / 1000 + 32400;
     if (chartTimeFrom === dataTimeFrom) {

@@ -1,4 +1,4 @@
-export const About: React.FC = () => {
+export default function About() {
   return (
     <div className="About">
       <div className="ContentTitle">
@@ -30,4 +30,4 @@ export const About: React.FC = () => {
       </div>
     </div>
   );
-};
+}
