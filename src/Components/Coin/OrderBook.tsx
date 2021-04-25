@@ -1,5 +1,5 @@
 import { getChangeRate, getCommaNumber } from "../../lib/coinController";
-import { CoinType } from "../../@types/CommonType";
+import { CoinType } from "types/CommonType";
 
 export default function OrderBook({ CoinInfo }: { CoinInfo: CoinType }) {
   let totalMax: number;

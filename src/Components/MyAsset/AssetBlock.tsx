@@ -7,7 +7,7 @@ import {
 } from "../../lib/coinController";
 import { setContentWrapFadeOut, setMarket } from "../../modules/Client";
 import { setMenu } from "./../../modules/Client";
-import { CoinType } from "./../../@types/CommonType";
+import { CoinType } from "types/CommonType";
 
 interface AssetBlockProps {
   coin: CoinType;

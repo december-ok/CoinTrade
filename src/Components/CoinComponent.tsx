@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../modules";
-import { CoinType } from "../@types/CommonType";
+import { CoinType } from "types/CommonType";
 import { CoinInfoComponent } from "../components/Coin/CoinInfoComponent";
 import OrderBook from "./../components/Coin/OrderBook";
 import Chart from "./../components/Coin/Chart";

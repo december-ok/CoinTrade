@@ -4,7 +4,7 @@ import { MarketChart } from "../components/Market/MarketChart";
 import { MarketListArea } from "../components/Market/MarketListArea";
 import { RootState } from "../modules";
 
-export const Market: React.FC = () => {
+export default function Home() {
   //0 = Volume, 1=Rise, 2=Fall 3=All
   const Coin = useSelector((state: RootState) => state.Coin);
   const [sort, setSort] = useState(0);
@@ -85,4 +85,4 @@ export const Market: React.FC = () => {
       />
     </div>
   );
-};
+}

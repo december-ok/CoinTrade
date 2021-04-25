@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CoinType } from "../../@types/CommonType";
+import { CoinType } from "types/CommonType";
 import { RootState } from "../../modules";
 import { setMarket } from "../../modules/Client";
 import { getCommaNumber, getChangeRate } from "../../lib/coinController";

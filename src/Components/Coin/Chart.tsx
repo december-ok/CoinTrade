@@ -8,7 +8,7 @@ import {
 } from "lightweight-charts";
 import { useEffect, useRef, useState } from "react";
 import { getChartData } from "../../lib/coinController";
-import { candleData, CoinType } from "../../@types/CommonType";
+import { candleData, CoinType } from "types/CommonType";
 import dateFormat from "dateformat";
 
 let formerDataLoading = false;

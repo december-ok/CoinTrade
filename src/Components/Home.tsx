@@ -1,6 +1,8 @@
+import loadable from "@loadable/component";
 import { useEffect, useState } from "react";
-import { Market } from "./Market";
-import { MyAsset } from "./MyAsset";
+
+const MarketPage = loadable(() => import("./Market"));
+const MyAssetPage = loadable(() => import("./MyAsset"));
 
 export default function Home() {
   const [isMarket, setIsMarket] = useState(true);
@@ -43,8 +45,8 @@ export default function Home() {
           </button>
         </div>
         <div className={"HomeContent" + (fadeAway ? " fadeAway" : "")}>
-          {isMarket && <Market />}
-          {!isMarket && <MyAsset />}
+          {isMarket && <MarketPage />}
+          {!isMarket && <MyAssetPage />}
         </div>
       </div>
     </div>

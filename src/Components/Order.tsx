@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { CoinType } from "../@types/CommonType";
+import { CoinType } from "types/CommonType";
 import { Buy } from "../components/Order/Buy";
 import { RootState } from "../modules";
 import { Sell } from "./../components/Order/Sell";

@@ -2,22 +2,47 @@ import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCommaNumber } from "../../lib/coinController";
 import { RootState } from "../../modules";
-import { sellCoin } from "./../../modules/Account";
-import { CoinType } from "./../../@types/CommonType";
+import { CoinType } from "types/CommonType";
+import { useSellButtonClick } from "./../../hooks/Order/SellHooks";
 
 interface SellProps {
   CoinInfo: CoinType;
 }
 
 export function Sell({ CoinInfo }: SellProps) {
-  const User = useSelector((state: RootState) => state.Account);
-  const Quantity = useRef<HTMLInputElement>(null);
+  const Account = useSelector((state: RootState) => state.Account);
+  const quantityInput = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);
-
+  const percentArray = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
   const leftQuantity =
-    User.assetsList.filter((item) => item.market === CoinInfo.market)[0]
+    Account.assetsList.filter((item) => item.market === CoinInfo.market)[0]
       ?.quantity ?? 0;
+
+  const sellButtonElement = useSellButtonClick(
+    quantity,
+    CoinInfo,
+    Account,
+    dispatch,
+    quantityInput,
+    leftQuantity
+  );
+
+  const onQuantityInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (leftQuantity < Number(e.target?.value)) {
+      e.target.value = e.target.value.slice(0, -1);
+    }
+    setQuantity(Number(e.target.value));
+  };
+  const onQuantitySelectorChange = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const calculatedValue = leftQuantity * Number(Number(e.target.value) / 100);
+    if (quantityInput.current)
+      quantityInput.current.value = calculatedValue.toFixed(2);
+    setQuantity(Number(calculatedValue.toFixed(2)));
+  };
+
   return (
     <div className="Sell">
       <div className="SellForm">
@@ -25,28 +50,17 @@ export function Sell({ CoinInfo }: SellProps) {
         <p className="QuantityV">{getCommaNumber(leftQuantity)}</p>
         <p className="QuantityL L">Quantity</p>
         <input
-          ref={Quantity}
+          ref={quantityInput}
           className="QuantityV"
-          onChange={(e) => {
-            if (leftQuantity < Number(e.target.value)) {
-              e.target.value = e.target.value.slice(0, -1);
-            }
-            setQuantity(Number(e.target.value));
-          }}
+          onChange={onQuantityInputChange}
           type="number"
         />
         <select
           className="QuantitySelector"
-          onChange={(e) => {
-            const calculatedValue =
-              leftQuantity * Number(Number(e.target.value) / 100);
-            if (Quantity.current)
-              Quantity.current.value = calculatedValue.toFixed(2);
-            setQuantity(Number(calculatedValue.toFixed(2)));
-          }}
+          onChange={onQuantitySelectorChange}
         >
           <option value="">Select</option>
-          {Array.from(new Array(20), (x, i) => 5 * (1 + i)).map((i) => (
+          {percentArray.map((i) => (
             <option key={i} value={i}>
               {i}%
             </option>
@@ -58,26 +72,7 @@ export function Sell({ CoinInfo }: SellProps) {
         <p className="TotalPriceV">
           {getCommaNumber(CoinInfo.trade_price * quantity)}
         </p>
-        <button
-          className="SellButton"
-          onClick={() => {
-            if (!quantity) {
-              alert("Select Quantity.");
-            } else if (quantity <= leftQuantity) {
-              dispatch(
-                sellCoin({
-                  market: CoinInfo.market,
-                  quantity,
-                  sellPrice: CoinInfo.trade_price,
-                })
-              );
-              alert("The purchase has been Successfully concluded.");
-              if (Quantity.current) Quantity.current.value = "0";
-            } else {
-              alert("Failed to purchase.");
-            }
-          }}
-        >
+        <button className="SellButton" ref={sellButtonElement}>
           Sell
         </button>
       </div>
