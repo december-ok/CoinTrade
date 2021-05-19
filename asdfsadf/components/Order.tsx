@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { CoinType } from "types/CommonType";
-import { Buy } from "../components/Order/Buy";
+import { Buy } from "./Order/Buy";
 import { RootState } from "../modules";
-import { Sell } from "./../components/Order/Sell";
-import { CoinInfoComponent } from "../components/Coin/CoinInfoComponent";
+import { Sell } from "./Order/Sell";
+import { CoinInfoComponent } from "./Coin/CoinInfoComponent";
+import { CoinType } from "../types/CommonType";
 
 export default function Order() {
   const Client = useSelector((state: RootState) => state.Client);

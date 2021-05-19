@@ -4,9 +4,9 @@ import { saveAccountData } from "../App";
 import { getCommaNumber, getIntCommaNumber } from "../lib/coinController";
 import { RootState } from "../modules";
 import { AssetType, initialState, initialUpdate } from "../modules/Account";
-import { CoinType } from "types/CommonType";
 import { getChangeRate } from "../lib/coinController";
-import { AssetBlock } from "./../components/MyAsset/AssetBlock";
+import { AssetBlock } from "./MyAsset/AssetBlock";
+import { CoinType } from "../types/CommonType";
 
 export default function MyAsset() {
   const User = useSelector((state: RootState) => state.Account);

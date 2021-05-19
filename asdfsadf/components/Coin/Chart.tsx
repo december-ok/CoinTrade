@@ -7,9 +7,9 @@ import {
   UTCTimestamp,
 } from "lightweight-charts";
 import { useEffect, useRef, useState } from "react";
-import { getChartData } from "../../lib/coinController";
-import { candleData, CoinType } from "types/CommonType";
 import dateFormat from "dateformat";
+import { candleData, CoinType } from "../../types/CommonType";
+import { getChartData } from "../../lib/coinController";
 
 let formerDataLoading = false;
 

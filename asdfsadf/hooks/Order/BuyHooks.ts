@@ -1,6 +1,6 @@
-import { CoinType } from "types/CommonType";
 import { Dispatch, useEffect, useRef } from "react";
-import { AccountState, buyCoin } from "modules/Account";
+import { AccountState, buyCoin } from "../../modules/Account";
+import { CoinType } from "../../types/CommonType";
 
 export const useBuyButtonClick = (
   quantity: number,

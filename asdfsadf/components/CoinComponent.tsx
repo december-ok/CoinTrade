@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../modules";
-import { CoinType } from "types/CommonType";
-import { CoinInfoComponent } from "../components/Coin/CoinInfoComponent";
-import OrderBook from "./../components/Coin/OrderBook";
-import Chart from "./../components/Coin/Chart";
+import { CoinInfoComponent } from "./Coin/CoinInfoComponent";
+import OrderBook from "./Coin/OrderBook";
+import Chart from "./Coin/Chart";
+import { CoinType } from "./../types/CommonType";
 import { getDetailData } from "../lib/coinController";
 
 export default function CoinComponent() {

@@ -9,9 +9,9 @@ import {
   initialUpdate,
 } from "./modules/Account";
 import { setContentWrapFadeOut } from "./modules/Client";
-import { getRealTimeMarket, getSimpleMarket } from "./lib/coinController";
-import { decrypt, encrypt } from "./lib/crypto";
 import loadable from "@loadable/component";
+import { decrypt, encrypt } from "./lib/crypto";
+import { getRealTimeMarket, getSimpleMarket } from "./lib/coinController";
 
 const HomePage = loadable(() => import("./components/Home"));
 const CoinPage = loadable(() => import("./components/CoinComponent"));

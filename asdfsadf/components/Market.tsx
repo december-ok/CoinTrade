@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { MarketChart } from "../components/Market/MarketChart";
-import { MarketListArea } from "../components/Market/MarketListArea";
+import { MarketChart } from "./Market/MarketChart";
+import { MarketListArea } from "./Market/MarketListArea";
 import { RootState } from "../modules";
 
 export default function Home() {

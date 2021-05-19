@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getChangeRate, getCommaNumber } from "../../lib/coinController";
 import { RootState } from "../../modules";
 import { setContentWrapFadeOut, setMarket } from "../../modules/Client";
-import { setMenu } from "./../../modules/Client";
+import { setMenu } from "../../modules/Client";
 
 interface CoinBlockProps {
   coin: {
