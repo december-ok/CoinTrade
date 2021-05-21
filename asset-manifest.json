@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/CoinTrade/static/css/main.1a20e4e0.chunk.css",
-    "main.js": "/CoinTrade/static/js/main.5684b4a1.chunk.js",
-    "runtime-main.js": "/CoinTrade/static/js/runtime-main.fe824489.js",
-    "static/js/2.d068f89a.chunk.js": "/CoinTrade/static/js/2.d068f89a.chunk.js",
+    "main.css": "/CoinTrade/static/css/main.851cb9bd.chunk.css",
+    "main.js": "/CoinTrade/static/js/main.6dc47a1a.chunk.js",
+    "runtime-main.js": "/CoinTrade/static/js/runtime-main.b797d5cf.js",
+    "static/js/2.9c0f2152.chunk.js": "/CoinTrade/static/js/2.9c0f2152.chunk.js",
     "static/js/3.128a5d82.chunk.js": "/CoinTrade/static/js/3.128a5d82.chunk.js",
-    "static/js/4.055ea10f.chunk.js": "/CoinTrade/static/js/4.055ea10f.chunk.js",
-    "static/js/5.7800656f.chunk.js": "/CoinTrade/static/js/5.7800656f.chunk.js",
+    "static/js/4.e99b40cf.chunk.js": "/CoinTrade/static/js/4.e99b40cf.chunk.js",
+    "static/js/5.aa8c8a2e.chunk.js": "/CoinTrade/static/js/5.aa8c8a2e.chunk.js",
     "static/js/6.e357abc4.chunk.js": "/CoinTrade/static/js/6.e357abc4.chunk.js",
     "static/js/7.69ce6a7b.chunk.js": "/CoinTrade/static/js/7.69ce6a7b.chunk.js",
     "static/js/8.3b30d5ba.chunk.js": "/CoinTrade/static/js/8.3b30d5ba.chunk.js",
-    "static/js/9.dfe38eb3.chunk.js": "/CoinTrade/static/js/9.dfe38eb3.chunk.js",
-    "static/js/10.d90e85f9.chunk.js": "/CoinTrade/static/js/10.d90e85f9.chunk.js",
+    "static/js/9.dfc02cb8.chunk.js": "/CoinTrade/static/js/9.dfc02cb8.chunk.js",
+    "static/js/10.39a7d3a0.chunk.js": "/CoinTrade/static/js/10.39a7d3a0.chunk.js",
     "index.html": "/CoinTrade/index.html",
-    "static/js/2.d068f89a.chunk.js.LICENSE.txt": "/CoinTrade/static/js/2.d068f89a.chunk.js.LICENSE.txt",
+    "static/js/2.9c0f2152.chunk.js.LICENSE.txt": "/CoinTrade/static/js/2.9c0f2152.chunk.js.LICENSE.txt",
     "static/js/3.128a5d82.chunk.js.LICENSE.txt": "/CoinTrade/static/js/3.128a5d82.chunk.js.LICENSE.txt",
     "static/js/6.e357abc4.chunk.js.LICENSE.txt": "/CoinTrade/static/js/6.e357abc4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.fe824489.js",
-    "static/js/2.d068f89a.chunk.js",
-    "static/css/main.1a20e4e0.chunk.css",
-    "static/js/main.5684b4a1.chunk.js"
+    "static/js/runtime-main.b797d5cf.js",
+    "static/js/2.9c0f2152.chunk.js",
+    "static/css/main.851cb9bd.chunk.css",
+    "static/js/main.6dc47a1a.chunk.js"
   ]
 }
