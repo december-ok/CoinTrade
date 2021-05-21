@@ -41,7 +41,7 @@
     "winBuild": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "assets": "node-sass -w src/SCSS/styles.scss src/index.css",
+    "assets": "node-sass -w src/styles/styles.scss src/index.css",
     "predeploy": "npm run winBuild",
     "deploy": "gh-pages -d build"
   },

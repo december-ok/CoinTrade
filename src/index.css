@@ -303,7 +303,8 @@
         font-size: 19px;
         font-weight: 700;
         font-family: "Noto Sans KR", sans-serif;
-        background-color: transparent; }
+        background-color: transparent;
+        border-bottom: 1px black solid; }
       .Coin .Content .CoinInfo .CoinInfoHeader .DropdownMenu {
         position: absolute;
         top: 25px;
@@ -453,7 +454,8 @@
         font-size: 19px;
         font-weight: 700;
         font-family: "Noto Sans KR", sans-serif;
-        background-color: transparent; }
+        background-color: transparent;
+        border-bottom: 1px black solid; }
       .Order .Content .CoinInfo .CoinInfoHeader .DropdownMenu {
         position: absolute;
         top: 25px;
@@ -503,13 +505,21 @@
       width: 60px; }
   .Order .Content .OrderContent .OrderContentBody {
     transition: 250ms opacity; }
-    .Order .Content .OrderContent .OrderContentBody .Buy .BuyButton {
+    .Order .Content .OrderContent .OrderContentBody .Buy .BuyForm .V {
+      text-align: right;
+      font-size: 23px;
+      font-weight: 700; }
+    .Order .Content .OrderContent .OrderContentBody .Buy .BuyForm .BuyButton {
       background-color: #ffa3a3;
       width: 100%;
       height: 50px;
       font-size: 21px;
       border-radius: 10px; }
-    .Order .Content .OrderContent .OrderContentBody .Sell .SellButton {
+    .Order .Content .OrderContent .OrderContentBody .Sell .SellForm .V {
+      text-align: right;
+      font-size: 23px;
+      font-weight: 700; }
+    .Order .Content .OrderContent .OrderContentBody .Sell .SellForm .SellButton {
       background-color: #9babff;
       width: 100%;
       height: 50px;
