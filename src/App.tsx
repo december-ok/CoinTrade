@@ -14,7 +14,7 @@ import { decrypt, encrypt } from "./lib/crypto";
 import { getRealTimeMarket, getSimpleMarket } from "./lib/coinController";
 
 const HomePage = loadable(() => import("./components/Home"));
-const CoinPage = loadable(() => import("./components/CoinComponent"));
+const CoinPage = loadable(() => import("./components/CoinPage"));
 const OrderPage = loadable(() => import("./components/Order"));
 const AboutPage = loadable(() => import("./components/About"));
 

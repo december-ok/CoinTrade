@@ -7,8 +7,7 @@ import { CoinInfoComponent } from "./Coin/CoinInfoComponent";
 import { CoinType } from "../types/CommonType";
 
 export default function Order() {
-  const Client = useSelector((state: RootState) => state.Client);
-  const Coin = useSelector((state: RootState) => state.Coin);
+  const { Coin, Client, Account } = useSelector((state: RootState) => state);
   const CoinInfo = Coin.get(Client.market) as CoinType;
   const [orderType, setOrderType] = useState(0);
   const [fadeAway, setFadeAway] = useState(false);
@@ -45,8 +44,8 @@ export default function Order() {
             </button>
           </div>
           <div className={"OrderContentBody" + (fadeAway ? " fadeAway" : "")}>
-            {orderType === 0 && <Buy CoinInfo={CoinInfo} />}
-            {orderType === 1 && <Sell CoinInfo={CoinInfo} />}
+            {orderType === 0 && <Buy CoinInfo={CoinInfo} Account={Account} />}
+            {orderType === 1 && <Sell CoinInfo={CoinInfo} Account={Account} />}
           </div>
         </div>
       </div>

@@ -1,16 +1,16 @@
 import { useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getCommaNumber } from "../../lib/coinController";
-import { RootState } from "../../modules";
 import { CoinType } from "../../types/CommonType";
 import { useBuyButtonClick } from "../../hooks/Order/BuyHooks";
+import { AccountState } from "../../modules/Account";
 
 interface BuyProps {
   CoinInfo: CoinType;
+  Account: AccountState;
 }
 
-export function Buy({ CoinInfo }: BuyProps) {
-  const Account = useSelector((state: RootState) => state.Account);
+export function Buy({ CoinInfo, Account }: BuyProps) {
   const quantityInput = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);

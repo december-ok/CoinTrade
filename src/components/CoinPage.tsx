@@ -7,9 +7,8 @@ import Chart from "./Coin/Chart";
 import { CoinType } from "../types/CommonType";
 import { getDetailData } from "../lib/coinController";
 
-export default function CoinComponent() {
-  const Coin = useSelector((state: RootState) => state.Coin);
-  const Client = useSelector((state: RootState) => state.Client);
+export default function CoinPage() {
+  const { Coin, Client } = useSelector((state: RootState) => state);
   const CoinInfo = Coin.get(Client.market) as CoinType;
   const [contentMenu, setContentMenu] = useState(0);
   const [fadeAway, setFadeAway] = useState(false);

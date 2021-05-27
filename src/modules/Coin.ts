@@ -30,7 +30,7 @@ type CoinAction =
   | ReturnType<typeof setRealMarket>
   | ReturnType<typeof setDetailMarket>;
 
-type CoinState = Map<string, CoinType>;
+export type CoinState = Map<string, CoinType>;
 
 const initialState: CoinState = new Map<string, CoinType>();
 

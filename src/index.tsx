@@ -6,7 +6,6 @@ import { createStore } from "redux";
 import rootReducer from "./modules";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-// import "./lib/firebase";
 
 export const store = createStore(rootReducer, composeWithDevTools());
 
