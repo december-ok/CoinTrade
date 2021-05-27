@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "../modules";
 
 export default function MyAsset() {
-  const { Coin, Account: User } = useSelector((state: RootState) => state);
+  const Coin = useSelector((state: RootState) => state.Coin);
+  const User = useSelector((state: RootState) => state.Account);
 
   return (
     <div className="MyAsset">

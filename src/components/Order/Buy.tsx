@@ -10,7 +10,7 @@ interface BuyProps {
   Account: AccountState;
 }
 
-export function Buy({ CoinInfo, Account }: BuyProps) {
+export default function Buy({ CoinInfo, Account }: BuyProps) {
   const quantityInput = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);

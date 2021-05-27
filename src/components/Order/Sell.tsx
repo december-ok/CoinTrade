@@ -10,7 +10,7 @@ interface SellProps {
   Account: AccountState;
 }
 
-export function Sell({ CoinInfo, Account }: SellProps) {
+export default function Sell({ CoinInfo, Account }: SellProps) {
   const quantityInput = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);

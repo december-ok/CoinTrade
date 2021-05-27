@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { Buy } from "./Order/Buy";
+import Buy from "./Order/Buy";
 import { RootState } from "../modules";
-import { Sell } from "./Order/Sell";
+import Sell from "./Order/Sell";
 import { CoinInfoComponent } from "./Coin/CoinInfoComponent";
 import { CoinType } from "../types/CommonType";
 

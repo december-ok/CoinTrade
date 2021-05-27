@@ -8,7 +8,8 @@ import { CoinType } from "../types/CommonType";
 import { getDetailData } from "../lib/coinController";
 
 export default function CoinPage() {
-  const { Coin, Client } = useSelector((state: RootState) => state);
+  const Coin = useSelector((state: RootState) => state.Coin);
+  const Client = useSelector((state: RootState) => state.Client);
   const CoinInfo = Coin.get(Client.market) as CoinType;
   const [contentMenu, setContentMenu] = useState(0);
   const [fadeAway, setFadeAway] = useState(false);

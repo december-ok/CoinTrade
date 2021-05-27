@@ -14,7 +14,6 @@
     "crypto-js": "^4.0.0",
     "dateformat": "^4.5.1",
     "firebase": "^8.4.1",
-    "gh-pages": "^3.1.0",
     "lightweight-charts": "^3.3.0",
     "react": "^17.0.2",
     "react-chartjs-2": "^2.11.1",
@@ -23,10 +22,11 @@
     "react-scripts": "4.0.3",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.9",
-    "typescript": "^4.2.3",
     "web-vitals": "^1.1.1"
   },
   "devDependencies": {
+    "gh-pages": "^3.1.0",
+    "typescript": "^4.2.3",
     "node-sass": "^5.0.0",
     "@types/big.js": "^6.0.2",
     "@types/crypto-js": "^4.0.1",
