@@ -505,20 +505,27 @@
       width: 60px; }
   .Order .Content .OrderContent .OrderContentBody {
     transition: 250ms opacity; }
-    .Order .Content .OrderContent .OrderContentBody .Buy .BuyForm .V {
+    .Order .Content .OrderContent .OrderContentBody input {
+      width: 98%;
+      margin: 6px auto; }
+    .Order .Content .OrderContent .OrderContentBody select {
+      height: 30px;
+      font-size: 14px; }
+    .Order .Content .OrderContent .OrderContentBody hr {
+      height: 2px;
+      background-color: black; }
+    .Order .Content .OrderContent .OrderContentBody .V {
       text-align: right;
       font-size: 23px;
       font-weight: 700; }
+    .Order .Content .OrderContent .OrderContentBody .L {
+      font-weight: 500; }
     .Order .Content .OrderContent .OrderContentBody .Buy .BuyForm .BuyButton {
       background-color: #ffa3a3;
       width: 100%;
       height: 50px;
       font-size: 21px;
       border-radius: 10px; }
-    .Order .Content .OrderContent .OrderContentBody .Sell .SellForm .V {
-      text-align: right;
-      font-size: 23px;
-      font-weight: 700; }
     .Order .Content .OrderContent .OrderContentBody .Sell .SellForm .SellButton {
       background-color: #9babff;
       width: 100%;

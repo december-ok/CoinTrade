@@ -101,13 +101,28 @@
       }
       .OrderContentBody {
         transition: 250ms opacity;
+        input {
+          width: 98%;
+          margin: 6px auto;
+        }
+        select {
+          height: 30px;
+          font-size: 14px;
+        }
+        hr {
+          height: 2px;
+          background-color: black;
+        }
+        .V {
+          text-align: right;
+          font-size: 23px;
+          font-weight: 700;
+        }
+        .L {
+          font-weight: 500;
+        }
         .Buy {
           .BuyForm {
-            .V {
-              text-align: right;
-              font-size: 23px;
-              font-weight: 700;
-            }
             .BuyButton {
               background-color: #ffa3a3;
               width: 100%;
@@ -119,11 +134,6 @@
         }
         .Sell {
           .SellForm {
-            .V {
-              text-align: right;
-              font-size: 23px;
-              font-weight: 700;
-            }
             .SellButton {
               background-color: rgba(155, 171, 255, 1);
               width: 100%;

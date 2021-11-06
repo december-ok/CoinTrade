@@ -48,6 +48,7 @@ export default function Sell({ CoinInfo, Account }: SellProps) {
       <div className="SellForm">
         <p className="QuantityL L">Quantity</p>
         <p className="QuantityV V">{getCommaNumber(leftQuantity)}</p>
+        <hr />
         <p className="QuantityL L">Quantity</p>
         <input
           ref={quantityInput}
@@ -66,8 +67,10 @@ export default function Sell({ CoinInfo, Account }: SellProps) {
             </option>
           ))}
         </select>
+        <hr />
         <p className="PriceL L">Price</p>
         <p className="PriceV V">{getCommaNumber(CoinInfo.trade_price)}</p>
+        <hr />
         <p className="TotalPriceL L">Total Price</p>
         <p className="TotalPriceV V">
           {getCommaNumber(CoinInfo.trade_price * quantity)}

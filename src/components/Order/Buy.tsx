@@ -51,6 +51,7 @@ export default function Buy({ CoinInfo, Account }: BuyProps) {
       <div className="BuyForm">
         <p className="CashL L">Cash</p>
         <p className="CashV V">{getCommaNumber(Account.won)}</p>
+        <hr />
         <p className="QuantityL L">Quantity</p>
         <input
           ref={quantityInput}
@@ -69,8 +70,10 @@ export default function Buy({ CoinInfo, Account }: BuyProps) {
             </option>
           ))}
         </select>
+        <hr />
         <p className="PriceL L">Price</p>
         <p className="PriceV V">{getCommaNumber(CoinInfo.trade_price)}</p>
+        <hr />
         <p className="TotalPriceL L">Total Price</p>
         <p className="TotalPriceV V">
           {getCommaNumber(CoinInfo.trade_price * quantity)}
