@@ -1,8 +1,10 @@
 # CoinTrade v2
 
-Crypto Coin paper trading service.
+Crypto Coin paper trading service. 
 
-You can visit [Here](https://december-ok.github.io/CoinTrade/)!
+You can visit [Github Hosted Page](https://december-ok.github.io/CoinTrade/)!
+
+API from [UpBit](https://docs.upbit.com/).
 
 ## development
 
@@ -13,6 +15,17 @@ npm i
 
 npm start
 ```
+
+## Tech
+
+- React
+- Typescript
+- WS
+- Redux
+- SCSS
+- Chart.js
+- Big.js
+- CryptoJS
 
 ## To do
 
