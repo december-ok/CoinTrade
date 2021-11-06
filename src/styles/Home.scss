@@ -147,143 +147,143 @@
         }
       }
     }
-    .MyAsset {
-      margin-top: 15px;
-      .MyAssetValueArea {
-        .MyAssetValueAreaHeader {
-          display: flex;
-          .MyAssetValueLabel {
-            margin-left: 2vw;
+  }
+}
+.MyAsset {
+  margin-top: 15px;
+  .MyAssetValueArea {
+    .MyAssetValueAreaHeader {
+      display: flex;
+      .MyAssetValueLabel {
+        margin-left: 2vw;
+      }
+      .MyAssetReset {
+        margin-left: auto;
+      }
+    }
+    .MyAssetValueAreaBody {
+      margin: 10px 0px;
+      .MyAssetValue {
+        text-align: center;
+        font-size: 40px;
+        font-weight: 700;
+        padding: 5px;
+      }
+      .MyAssetValueInfo {
+        height: 40px;
+        display: flex;
+        justify-content: space-around;
+        font-size: 23px;
+      }
+    }
+  }
+  .MyAssetListArea {
+    .MyAssetListLabel {
+      margin-left: 2vw;
+      margin-bottom: 15px;
+    }
+    .MyAssetList {
+      display: grid;
+      grid-row-gap: 10px;
+      .Won {
+        width: 85vw;
+        box-shadow: 0 3px 20px 0 #e8e8e8;
+        border-radius: 13px;
+        height: 50px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 5%;
+        padding-right: 5%;
+        display: flex;
+        align-items: center;
+        border: 1px solid #e8e8e8;
+
+        img {
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+          margin-right: 15px;
+          border-radius: 50%;
+        }
+        .Info {
+          display: grid;
+          grid-template-rows: 1fr 1fr;
+          align-items: center;
+          .WonLabel {
+            font-size: 15px;
+            font-weight: 700;
           }
-          .MyAssetReset {
-            margin-left: auto;
+          .WonTicker {
+            font-size: 13px;
+            color: #8f8f8f;
           }
         }
-        .MyAssetValueAreaBody {
-          margin: 10px 0px;
-          .MyAssetValue {
-            text-align: center;
-            font-size: 40px;
-            font-weight: 700;
-            padding: 5px;
-          }
-          .MyAssetValueInfo {
-            height: 40px;
-            display: flex;
-            justify-content: space-around;
-            font-size: 23px;
-          }
+        .WonPrice {
+          align-self: center;
+          font-size: 15px;
+          font-weight: 700;
+          margin-left: auto;
         }
       }
-      .MyAssetListArea {
-        .MyAssetListLabel {
-          margin-left: 2vw;
-          margin-bottom: 15px;
-        }
-        .MyAssetList {
-          display: grid;
-          grid-row-gap: 10px;
-          .Won {
-            width: 85vw;
-            box-shadow: 0 3px 20px 0 #e8e8e8;
-            border-radius: 13px;
+      .AssetBlock {
+        width: 85vw;
+        box-shadow: 0 3px 20px 0 #e8e8e8;
+        border-radius: 13px;
+        border: 1px solid #e8e8e8;
+        padding: 5px 5%;
+        .AssetBlockHeader {
+          height: 50px;
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          img {
+            width: 50px;
             height: 50px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            padding-left: 5%;
-            padding-right: 5%;
-            display: flex;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 50%;
+          }
+          .Info {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
             align-items: center;
-            border: 1px solid #e8e8e8;
-
-            img {
-              width: 50px;
-              height: 50px;
-              object-fit: cover;
-              margin-right: 15px;
-              border-radius: 50%;
-            }
-            .Info {
-              display: grid;
-              grid-template-rows: 1fr 1fr;
-              align-items: center;
-              .WonLabel {
-                font-size: 15px;
-                font-weight: 700;
-              }
-              .WonTicker {
-                font-size: 13px;
-                color: #8f8f8f;
-              }
-            }
-            .WonPrice {
-              align-self: center;
+            .AssetName {
               font-size: 15px;
               font-weight: 700;
-              margin-left: auto;
+            }
+            .AssetTicker {
+              font-size: 13px;
+              color: #8f8f8f;
             }
           }
-          .AssetBlock {
-            width: 85vw;
-            box-shadow: 0 3px 20px 0 #e8e8e8;
-            border-radius: 13px;
-            border: 1px solid #e8e8e8;
-            padding: 5px 5%;
-            .AssetBlockHeader {
-              height: 50px;
-              display: flex;
-              align-items: center;
-              margin-bottom: 10px;
-              img {
-                width: 50px;
-                height: 50px;
-                object-fit: cover;
-                margin-right: 15px;
-                border-radius: 50%;
-              }
-              .Info {
-                display: grid;
-                grid-template-rows: 1fr 1fr;
-                align-items: center;
-                .AssetName {
-                  font-size: 15px;
-                  font-weight: 700;
-                }
-                .AssetTicker {
-                  font-size: 13px;
-                  color: #8f8f8f;
-                }
-              }
-              .Summary {
-                margin-left: auto;
-                display: grid;
-                grid-template-rows: 1fr 1fr;
-                align-items: center;
-                justify-items: right;
-                .TotalPrice {
-                  font-size: 15px;
-                  font-weight: 700;
-                }
-                .Quantity {
-                  font-size: 13px;
-                }
-              }
+          .Summary {
+            margin-left: auto;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            align-items: center;
+            justify-items: right;
+            .TotalPrice {
+              font-size: 15px;
+              font-weight: 700;
             }
-            .AssetBlockBody {
-              display: grid;
-              grid-template-columns: 1fr 2fr 1fr 2fr;
-              grid-row-gap: 5px;
-              justify-items: right;
-              p {
-                font-size: 13px;
-              }
-              .Label {
-                color: #8f8f8f;
-              }
-              .Avg {
-                color: black;
-              }
+            .Quantity {
+              font-size: 13px;
             }
+          }
+        }
+        .AssetBlockBody {
+          display: grid;
+          grid-template-columns: 1fr 2fr 1fr 2fr;
+          grid-row-gap: 5px;
+          justify-items: right;
+          p {
+            font-size: 13px;
+          }
+          .Label {
+            color: #8f8f8f;
+          }
+          .Avg {
+            color: black;
           }
         }
       }

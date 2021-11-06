@@ -119,7 +119,7 @@ const sellCoinReducer = (
 
   const newData = {
     market: action.payload.market,
-    averagePrice: formerData.quantity,
+    averagePrice: formerData.averagePrice,
     quantity: Big(formerData.quantity)
       .minus(action.payload.quantity)
       .toNumber(),

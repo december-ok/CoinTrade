@@ -6,6 +6,7 @@ export default function About() {
       </div>
       <div className="Content">
         <a href="https://github.com/december-ok/CoinTrade">👀Github</a>
+        <h3>- Developed by 🐰</h3>
       </div>
     </div>
   );

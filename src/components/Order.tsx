@@ -5,6 +5,7 @@ import { RootState } from "../modules";
 import Sell from "./Order/Sell";
 import { CoinInfoComponent } from "./Coin/CoinInfoComponent";
 import { CoinType } from "../types/CommonType";
+import MyAsset from "./MyAsset";
 
 export default function Order() {
   const { Coin, Client, Account } = useSelector((state: RootState) => state);
@@ -26,6 +27,9 @@ export default function Order() {
   const onSellClick = () => {
     if (orderType !== 1) OrderContentFadeAway(1);
   };
+  const onAssetClick = () => {
+    if (orderType !== 2) OrderContentFadeAway(2);
+  };
 
   return (
     <div className="Order">
@@ -37,15 +41,25 @@ export default function Order() {
         <div className="OrderContent">
           <div className="OrderSelector">
             <button onClick={onBuyClick}>
-              <p className={"BuyP" + (orderType ? " inActive" : "")}>Buy</p>
+              <p className={"BuyP" + (orderType !== 0 ? " inActive" : "")}>
+                Buy
+              </p>
             </button>
             <button onClick={onSellClick}>
-              <p className={"SellP" + (orderType ? "" : " inActive")}>Sell</p>
+              <p className={"SellP" + (orderType !== 1 ? " inActive" : "")}>
+                Sell
+              </p>
+            </button>
+            <button onClick={onAssetClick}>
+              <p className={"MyAssetP" + (orderType !== 2 ? " inActive" : "")}>
+                My Asset
+              </p>
             </button>
           </div>
           <div className={"OrderContentBody" + (fadeAway ? " fadeAway" : "")}>
             {orderType === 0 && <Buy CoinInfo={CoinInfo} Account={Account} />}
             {orderType === 1 && <Sell CoinInfo={CoinInfo} Account={Account} />}
+            {orderType === 2 && <MyAsset />}
           </div>
         </div>
       </div>
