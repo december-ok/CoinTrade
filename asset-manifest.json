@@ -1,26 +1,19 @@
 {
   "files": {
-    "main.css": "/CoinTrade/static/css/main.1842e150.chunk.css",
-    "main.js": "/CoinTrade/static/js/main.8f2040ea.chunk.js",
-    "runtime-main.js": "/CoinTrade/static/js/runtime-main.c0d2b192.js",
-    "static/js/2.557a129c.chunk.js": "/CoinTrade/static/js/2.557a129c.chunk.js",
-    "static/js/3.7d79d100.chunk.js": "/CoinTrade/static/js/3.7d79d100.chunk.js",
-    "static/js/4.7ca6bd20.chunk.js": "/CoinTrade/static/js/4.7ca6bd20.chunk.js",
-    "static/js/5.e1536311.chunk.js": "/CoinTrade/static/js/5.e1536311.chunk.js",
-    "static/js/6.26fc395d.chunk.js": "/CoinTrade/static/js/6.26fc395d.chunk.js",
-    "static/js/7.f3600983.chunk.js": "/CoinTrade/static/js/7.f3600983.chunk.js",
-    "static/js/8.6dfc106e.chunk.js": "/CoinTrade/static/js/8.6dfc106e.chunk.js",
-    "static/js/9.9dac6094.chunk.js": "/CoinTrade/static/js/9.9dac6094.chunk.js",
-    "static/js/10.9920fd9e.chunk.js": "/CoinTrade/static/js/10.9920fd9e.chunk.js",
-    "index.html": "/CoinTrade/index.html",
-    "static/js/2.557a129c.chunk.js.LICENSE.txt": "/CoinTrade/static/js/2.557a129c.chunk.js.LICENSE.txt",
-    "static/js/3.7d79d100.chunk.js.LICENSE.txt": "/CoinTrade/static/js/3.7d79d100.chunk.js.LICENSE.txt",
-    "static/js/6.26fc395d.chunk.js.LICENSE.txt": "/CoinTrade/static/js/6.26fc395d.chunk.js.LICENSE.txt"
+    "main.css": "/CoinTrade/static/css/main.199ecfd5.css",
+    "main.js": "/CoinTrade/static/js/main.d5c82d2c.js",
+    "static/js/911.bdf86dd6.chunk.js": "/CoinTrade/static/js/911.bdf86dd6.chunk.js",
+    "static/js/519.50bb718b.chunk.js": "/CoinTrade/static/js/519.50bb718b.chunk.js",
+    "static/js/78.76700def.chunk.js": "/CoinTrade/static/js/78.76700def.chunk.js",
+    "static/js/215.c958fa35.chunk.js": "/CoinTrade/static/js/215.c958fa35.chunk.js",
+    "static/js/768.3b3e3c6d.chunk.js": "/CoinTrade/static/js/768.3b3e3c6d.chunk.js",
+    "static/js/946.c6438af5.chunk.js": "/CoinTrade/static/js/946.c6438af5.chunk.js",
+    "static/js/780.9e298701.chunk.js": "/CoinTrade/static/js/780.9e298701.chunk.js",
+    "static/js/655.3adf8039.chunk.js": "/CoinTrade/static/js/655.3adf8039.chunk.js",
+    "index.html": "/CoinTrade/index.html"
   },
   "entrypoints": [
-    "static/js/runtime-main.c0d2b192.js",
-    "static/js/2.557a129c.chunk.js",
-    "static/css/main.1842e150.chunk.css",
-    "static/js/main.8f2040ea.chunk.js"
+    "static/css/main.199ecfd5.css",
+    "static/js/main.d5c82d2c.js"
   ]
 }
