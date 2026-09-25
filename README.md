@@ -2,7 +2,7 @@
 
 Crypto Coin paper trading service. 
 
-You can visit [Github Hosted Page](https://december-ok.github.io/CoinTrade/)!
+You can visit [Hosted Page](https://coin-trade-psi.vercel.app/)!
 
 API from [UpBit](https://docs.upbit.com/).
 
