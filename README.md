@@ -1,5 +1,7 @@
 # CoinTrade v2
 
+<img src="sample_image.png" width="300px">
+
 Crypto Coin paper trading service. 
 
 You can visit [Hosted Page](https://coin-trade-psi.vercel.app/)!
