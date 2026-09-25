@@ -1,68 +1,39 @@
 {
-  "homepage": "http://december-ok.github.io/CoinTrade",
   "name": "cointrade",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "next build",
+    "start": "NODE_ENV=production tsx server.ts",
+    "lint": "next lint"
+  },
   "dependencies": {
-    "@loadable/component": "^5.14.1",
-    "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.8.3",
-    "axios": "^0.21.1",
-    "big.js": "^6.0.3",
+    "axios": "^1.7.7",
+    "big.js": "^6.2.1",
     "chart.js": "^2.9.4",
-    "crypto-js": "^4.0.0",
+    "crypto-js": "^4.2.0",
     "dateformat": "^4.5.1",
-    "firebase": "^8.4.1",
-    "lightweight-charts": "^3.3.0",
-    "react": "^17.0.2",
+    "lightweight-charts": "^3.8.0",
+    "next": "^14.2.15",
+    "react": "^18.3.1",
     "react-chartjs-2": "^2.11.1",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.3",
-    "react-scripts": "^5.0.1",
-    "redux": "^4.0.5",
+    "react-dom": "^18.3.1",
+    "react-redux": "^8.1.3",
+    "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
-    "sass": "^1.94.2",
-    "web-vitals": "^1.1.1"
+    "sass": "^1.79.4",
+    "ws": "^8.18.0"
   },
   "devDependencies": {
-    "@types/big.js": "^6.0.2",
-    "@types/crypto-js": "^4.0.1",
-    "@types/dateformat": "^3.0.1",
-    "@types/jest": "^26.0.22",
-    "@types/loadable__component": "^5.13.3",
-    "@types/node": "^12.20.7",
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
-    "gh-pages": "^3.1.0",
-    "typescript": "^4.2.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build",
-    "winBuild": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "assets": "node-sass -w src/styles/styles.scss src/index.css",
-    "predeploy": "npm run winBuild",
-    "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@types/big.js": "^6.2.2",
+    "@types/crypto-js": "^4.2.2",
+    "@types/dateformat": "^5.0.3",
+    "@types/node": "^20.16.11",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "@types/ws": "^8.5.12",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
   }
 }

@@ -1,5 +1,5 @@
 import Big from "big.js";
-import { saveAccountData } from "../App";
+import { saveAccountData } from "../lib/storage";
 
 const INITIAL_UPDATE = "Account/INITIAL_UPDATE" as const;
 const BUY_COIN = "Account/BUY_COIN" as const;

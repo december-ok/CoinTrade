@@ -6,20 +6,26 @@ You can visit [Github Hosted Page](https://december-ok.github.io/CoinTrade/)!
 
 API from [UpBit](https://docs.upbit.com/).
 
-## development
+## Development & Run
 
 ```sh
-git clone https://github.com/december-ok/CoinTrade
+# 패키지 설치
+npm i --legacy-peer-deps
 
-npm i
+# 개발 서버 실행 (Next.js + WebSocket Proxy 커스텀 서버)
+npm run dev
 
+# 프로덕션 빌드 및 실행
+npm run build
 npm start
 ```
 
 ## Tech
 
-- React
-- Typescript
+- Next.js (Pages Router + Custom Server)
+- Node.js WebSocket Server (`ws`)
+- React 18
+- TypeScript
 - WS
 - Redux
 - SCSS

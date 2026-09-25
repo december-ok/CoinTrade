@@ -1,8 +1,8 @@
-import loadable from "@loadable/component";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
-const MarketPage = loadable(() => import("./Market"));
-const MyAssetPage = loadable(() => import("./MyAsset"));
+const MarketPage = dynamic(() => import("./Market"), { ssr: false });
+const MyAssetPage = dynamic(() => import("./MyAsset"), { ssr: false });
 
 export default function Home() {
   const [isMarket, setIsMarket] = useState(true);

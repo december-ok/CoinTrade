@@ -5,16 +5,22 @@ import {
   setRealMarket,
 } from "../modules/Coin";
 import { setSimpleMarket } from "../modules/Coin";
-import { store } from "..";
+import { store } from "../store";
+
+const getWebSocketUrl = () => {
+  if (typeof window === "undefined") return "";
+  const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+  return `${protocol}//${window.location.host}/api/ws`;
+};
 
 export const getSimpleMarket = async () => {
-  let { data: hi } = await axios.get("https://api.upbit.com/v1/market/all");
+  let { data: hi } = await axios.get("/api/upbit/v1/market/all");
   const marketList = hi.filter((item: typeof hi[0]) => {
     return item.market.includes("KRW-");
   });
   store.dispatch(setBasicMarket(marketList));
   let { data } = await axios.get(
-    "https://api.upbit.com/v1/ticker?markets=" +
+    "/api/upbit/v1/ticker?markets=" +
       marketList
         .map((item: typeof hi[0]) => {
           return item.market;
@@ -46,14 +52,19 @@ export const getSimpleMarket = async () => {
 };
 
 export const getRealTimeMarket = async (marketList: string) => {
-  let socket = new WebSocket("wss://api.upbit.com/websocket/v1");
+  let socket = new WebSocket(getWebSocketUrl());
   socket.onopen = () => {
     const message = `[{"ticket":"test"},{"type":"ticker","codes":[${marketList}]}]`;
     socket.send(message);
   };
   socket.onmessage = async (message: any) => {
-    const text = await new Response(message.data).text();
-    const data = JSON.parse(text);
+    let data: any;
+    if (typeof message.data === "string") {
+      data = JSON.parse(message.data);
+    } else {
+      const text = await new Response(message.data).text();
+      data = JSON.parse(text);
+    }
     //setMinus
     if (data.change === "FALL") {
       data.change_rate = -data.change_rate;
@@ -65,14 +76,18 @@ export const getRealTimeMarket = async (marketList: string) => {
 };
 
 export const getDetailData = async (market: string): Promise<WebSocket> => {
-  const socket = new WebSocket("wss://api.upbit.com/websocket/v1");
+  const socket = new WebSocket(getWebSocketUrl());
   socket.onopen = () => {
     const messageOrderbook = `[{"ticket":"test"},{"type":"orderbook","codes":["${market}.7"]}]`;
-    // console.log(message);
     socket.send(messageOrderbook);
   };
   socket.onmessage = async (message: any) => {
-    const data = await new Response(message.data).json();
+    let data: any;
+    if (typeof message.data === "string") {
+      data = JSON.parse(message.data);
+    } else {
+      data = await new Response(message.data).json();
+    }
     store.dispatch(
       setDetailMarket({
         ...data,
@@ -91,12 +106,12 @@ export const getChartData = async (
   time: string = ""
 ) => {
   const scaleUrl = [
-    "https://api.upbit.com/v1/candles/minutes/1",
-    "https://api.upbit.com/v1/candles/minutes/30",
-    "https://api.upbit.com/v1/candles/minutes/60",
-    "https://api.upbit.com/v1/candles/days",
-    "https://api.upbit.com/v1/candles/weeks",
-    "https://api.upbit.com/v1/candles/months",
+    "/api/upbit/v1/candles/minutes/1",
+    "/api/upbit/v1/candles/minutes/30",
+    "/api/upbit/v1/candles/minutes/60",
+    "/api/upbit/v1/candles/days",
+    "/api/upbit/v1/candles/weeks",
+    "/api/upbit/v1/candles/months",
   ];
 
   const { data }: any = await axios.get(

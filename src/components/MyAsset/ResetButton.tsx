@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { saveAccountData } from "../../App";
+import { saveAccountData } from "../../lib/storage";
 import { initialState, initialUpdate } from "../../modules/Account";
 
 export default function ResetButton() {
