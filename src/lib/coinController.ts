@@ -9,6 +9,10 @@ import { store } from "../store";
 
 const getWebSocketUrl = () => {
   if (typeof window === "undefined") return "";
+  const isVercel = window.location.hostname.includes("vercel.app");
+  if (isVercel) {
+    return "wss://api.upbit.com/websocket/v1";
+  }
   const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
   return `${protocol}//${window.location.host}/api/ws`;
 };
@@ -51,13 +55,15 @@ export const getSimpleMarket = async () => {
   };
 };
 
-export const getRealTimeMarket = async (marketList: string) => {
+export const getRealTimeMarket = async (marketList: string): Promise<WebSocket> => {
   let socket = new WebSocket(getWebSocketUrl());
-  socket.onopen = () => {
+
+  const subscribe = (ws: WebSocket) => {
     const message = `[{"ticket":"test"},{"type":"ticker","codes":[${marketList}]}]`;
-    socket.send(message);
+    ws.send(message);
   };
-  socket.onmessage = async (message: any) => {
+
+  const handleMessage = async (message: any) => {
     let data: any;
     if (typeof message.data === "string") {
       data = JSON.parse(message.data);
@@ -72,16 +78,32 @@ export const getRealTimeMarket = async (marketList: string) => {
     }
     store.dispatch(setRealMarket(data));
   };
+
+  socket.onopen = () => subscribe(socket);
+  socket.onmessage = handleMessage;
+
+  socket.onerror = () => {
+    if (socket.url.includes("/api/ws")) {
+      console.warn("WebSocket proxy error, falling back to direct Upbit WebSocket");
+      const fallbackSocket = new WebSocket("wss://api.upbit.com/websocket/v1");
+      fallbackSocket.onopen = () => subscribe(fallbackSocket);
+      fallbackSocket.onmessage = handleMessage;
+      socket = fallbackSocket;
+    }
+  };
+
   return socket;
 };
 
 export const getDetailData = async (market: string): Promise<WebSocket> => {
-  const socket = new WebSocket(getWebSocketUrl());
-  socket.onopen = () => {
+  let socket = new WebSocket(getWebSocketUrl());
+
+  const subscribe = (ws: WebSocket) => {
     const messageOrderbook = `[{"ticket":"test"},{"type":"orderbook","codes":["${market}.7"]}]`;
-    socket.send(messageOrderbook);
+    ws.send(messageOrderbook);
   };
-  socket.onmessage = async (message: any) => {
+
+  const handleMessage = async (message: any) => {
     let data: any;
     if (typeof message.data === "string") {
       data = JSON.parse(message.data);
@@ -94,6 +116,19 @@ export const getDetailData = async (market: string): Promise<WebSocket> => {
         orderbook_units: data.orderbook_units.slice(0, 7),
       })
     );
+  };
+
+  socket.onopen = () => subscribe(socket);
+  socket.onmessage = handleMessage;
+
+  socket.onerror = () => {
+    if (socket.url.includes("/api/ws")) {
+      console.warn("Detail WebSocket proxy error, falling back to direct Upbit WebSocket");
+      const fallbackSocket = new WebSocket("wss://api.upbit.com/websocket/v1");
+      fallbackSocket.onopen = () => subscribe(fallbackSocket);
+      fallbackSocket.onmessage = handleMessage;
+      socket = fallbackSocket;
+    }
   };
 
   return socket;
